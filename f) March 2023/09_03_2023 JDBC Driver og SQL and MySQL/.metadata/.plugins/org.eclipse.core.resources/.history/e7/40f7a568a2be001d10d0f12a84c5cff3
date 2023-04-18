@@ -1,0 +1,38 @@
+package djuric;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Select {
+
+	public static void main(String[] args) {
+		
+// adresa sa kojom zelomo da se povezemo
+// pa korisnicko ime servera kome pristupamo
+// lozinka servera kome pristupamo
+		
+		String url = "jdbc:mysql://localhost:3306/tb";
+		String username = "root";
+		String password = "";
+		
+		try(Connection conn = DriverManager.getConnection(url, username, password)){
+			
+			System.out.println("Uspesna konekcija ka bazi.");
+			
+			String sqlselect = "SELECT * FROM korisnici";
+			Statement stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(sqlselect);
+			
+			
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

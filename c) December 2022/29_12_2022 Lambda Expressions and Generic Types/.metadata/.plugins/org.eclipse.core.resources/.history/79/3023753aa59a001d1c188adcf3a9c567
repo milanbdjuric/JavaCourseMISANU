@@ -1,0 +1,17 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		deljiv broj = (n, d) -> (n % d == 0);
+		
+		if(broj.equals(broj)) {
+			System.out.println("Deljivi su.");
+		}
+		else
+			System.out.println("Nisu deljivi.");
+
+	}
+
+}

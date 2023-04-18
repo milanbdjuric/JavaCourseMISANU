@@ -1,0 +1,32 @@
+package wdjba;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("U nesite vrijednost za n: ");
+		int n = sc.nextInt();
+		
+		double a, y;
+		int i = 1;
+		
+		do {
+			System.out.println("U nesite vrijednost za a: ");
+			a = sc.nextDouble();
+			if (a>0) {
+				y = Math.sqrt(a);
+				System.out.println("a je vece od nule i korijen muje: " + y);
+			}
+			else {
+				y = Math.pow(a, 2);
+				System.out.println("a je manje odil nula i fadrat muje: " + y);
+			}
+			i++;
+		}while (i <=n);
+		sc.close();
+	}
+}

@@ -1,0 +1,29 @@
+package vdjb;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Mein {
+
+	public static void main(String[] args) {
+		
+		String niz[] = {"jebem", "ti", "mater", "onu", "usranu", "u", "picku"};
+			
+		List<String> lista = new ArrayList<String>();
+	
+		for(String nj : niz) {
+			lista.add(nj);
+			System.out.printf("%s ", nj);
+		}
+		
+		lista.remove("picku");
+		lista.remove(5);
+		
+		System.out.println(lista);
+		
+
+
+	}
+
+}

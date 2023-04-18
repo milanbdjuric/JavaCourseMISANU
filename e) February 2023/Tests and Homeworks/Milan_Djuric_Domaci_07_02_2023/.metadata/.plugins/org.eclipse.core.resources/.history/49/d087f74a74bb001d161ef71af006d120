@@ -1,0 +1,26 @@
+package zdxfhg;
+
+public abstract class Vozilo {
+	
+	private double tezina;
+	
+	private double vucnaSila;
+	
+	public double getVucnaSila() {
+		return vucnaSila;
+	}
+
+	Vozilo(double tezina, double vucnaSila){
+		this.tezina = tezina;
+		this.vucnaSila = vucnaSila;
+	}
+	
+	public double getTezina() {
+		return tezina;
+	}
+
+	public abstract double ukupnaTezina();
+	
+	public abstract String opis();
+
+}

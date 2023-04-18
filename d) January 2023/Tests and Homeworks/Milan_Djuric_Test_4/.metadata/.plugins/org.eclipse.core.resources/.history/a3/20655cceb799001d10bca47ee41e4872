@@ -1,0 +1,37 @@
+package gjurriq;
+
+public class Auto {
+	
+	String nazif, proizvajalec;
+	int godisce;
+	double potroslja;
+	
+	public void unetiNazifAuta(String nazif) {
+		this.nazif = nazif;
+	}
+	public void unetiProizvajalcaAuta(String proizvajalec) {
+		this.proizvajalec = proizvajalec;
+	}
+	public void unetiGodisceAuta(int godisce)throws Exception{
+		try {
+			this.godisce = godisce;
+		}catch(Exception x) {
+			unetiGodisceAuta(godisce);
+		}
+	}
+	public void unetiPotrosljuAuta(double potroslja) {
+		try {
+			this.potroslja = potroslja;
+		}catch(Exception nj) {
+			unetiPotrosljuAuta(potroslja);
+		}
+	}
+	public String toString() {
+		return "Auto [nazif=" + nazif + ", proizvajalec=" + proizvajalec + ", godisce=" + godisce + ", potroslja="
+				+ potroslja + "]";
+	}
+	
+	
+	
+
+}

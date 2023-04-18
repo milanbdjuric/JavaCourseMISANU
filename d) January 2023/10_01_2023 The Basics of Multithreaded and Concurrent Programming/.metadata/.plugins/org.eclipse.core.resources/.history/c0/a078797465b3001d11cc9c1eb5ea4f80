@@ -1,0 +1,19 @@
+package fwefwe;
+
+public class Mejnarica {
+
+	public static void main(String[] args) {
+		
+		Kurac palac = new Kurac();
+		
+		Thread x = new Thread(palac, "Jebemater");
+		Thread y = new Thread(palac, "Jebekeve");
+		Thread z = new Thread(palac, "MrSSSbre");
+		
+		x.start();
+		y.start();
+		z.start();
+
+	}
+
+}

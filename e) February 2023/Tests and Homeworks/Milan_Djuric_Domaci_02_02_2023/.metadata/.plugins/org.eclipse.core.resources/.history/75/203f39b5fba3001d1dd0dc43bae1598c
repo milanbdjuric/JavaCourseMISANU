@@ -1,0 +1,15 @@
+package djuric;
+
+public class Djak extends Osoba {
+	
+	String nazivSkole, razred;
+
+	Djak(String i, String d, String a, String n, String r) {
+		super(i, d, a);
+		nazivSkole = n;
+		razred = r;
+	}
+	
+	
+
+}

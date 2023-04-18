@@ -1,0 +1,31 @@
+package dsdc;
+
+public class Sujkla<Kurac> {
+	
+	Kurac ob1;
+	Kurac ob2;
+	
+	Sujkla(Kurac ob1, Kurac ob2){
+		this.ob1 = ob1;
+		this.ob2 = ob2;
+	}
+	
+	public Kurac getOb1() {
+		return ob1;
+	}
+	public void setOb1(Kurac a) {
+		ob1 = a;
+	}
+	public Kurac getOb2() {
+		return ob2;
+	}
+	public void setOb2(Kurac ob2) {
+		this.ob2 = ob2;
+	}
+	
+	
+
+
+	
+
+}

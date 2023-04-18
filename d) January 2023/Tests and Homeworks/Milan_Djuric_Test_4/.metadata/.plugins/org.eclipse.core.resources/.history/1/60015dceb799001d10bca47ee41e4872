@@ -1,0 +1,28 @@
+package gjurriq;
+
+import java.util.Scanner;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Auto a1 = new Auto();
+		
+		System.out.print("Koie owo auto? ");
+		a1.unetiNazifAuta(sc.nextLine());
+		System.out.print("Koga napraweo? ");
+		a1.unetiProizvajalcaAuta(sc.nextLine());
+		System.out.print("Koemue godisce? ");
+		a1.unetiGodisceAuta(sc.nextInt());
+		System.out.print("Koko trrosi? ");
+		a1.unetiPotrosljuAuta(sc.nextDouble());
+		
+		a1.toString();
+		
+		sc.close();
+
+	}
+
+}

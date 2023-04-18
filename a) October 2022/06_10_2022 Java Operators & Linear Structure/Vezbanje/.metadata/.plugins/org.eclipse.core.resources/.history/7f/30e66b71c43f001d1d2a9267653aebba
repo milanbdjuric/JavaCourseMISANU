@@ -1,0 +1,10 @@
+
+public class Zadatak {
+
+	public static void main(String[] args) {
+		
+		System.out.println("R.br"\t"X"\t"Y"\t"Z"\n"1"\t"2.5"t\"3.6"\t"4.9");
+
+	}
+
+}

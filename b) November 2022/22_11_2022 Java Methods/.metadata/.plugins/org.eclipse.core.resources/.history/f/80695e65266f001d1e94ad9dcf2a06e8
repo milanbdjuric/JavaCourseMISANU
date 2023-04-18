@@ -1,0 +1,54 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int a[] = new int[100];
+		int b[] = new int[100];
+		
+		System.out.println("Unesite vrednost za k: ");
+		int k = sc.nextInt();
+		
+		System.out.println("Unesite vrednost za a[0]: ");
+		a[0] = sc.nextInt();
+		System.out.println("Unesite vrednost za b[0]: ");
+		b[0] = sc.nextInt();
+		
+		for (int i = 0; i<=k; i++) {
+			a[i]=a[i-1]+b[i-1];
+			b[i]=a[i-1]*b[i-1]; 
+		}
+		System.out.println("a[" + k + "] = " + a[k]);
+		System.out.println("b[" + k + "] = " + b[k]);
+
+		
+
+				
+		
+
+
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

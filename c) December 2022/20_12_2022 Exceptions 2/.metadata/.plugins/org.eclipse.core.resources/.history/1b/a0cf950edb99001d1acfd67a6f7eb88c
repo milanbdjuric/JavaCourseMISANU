@@ -1,0 +1,17 @@
+package djuric;
+
+public class Mejnarijana {
+
+	public static void main(String[] args) throws IzuzetakArtikal {
+		
+		Artikal kurac = new Artikal();
+		
+		try {
+			kurac.setNaziv(null);
+		} catch (IzuzetakArtikal e) {
+			e.getMessage();
+		}
+
+	}
+
+}

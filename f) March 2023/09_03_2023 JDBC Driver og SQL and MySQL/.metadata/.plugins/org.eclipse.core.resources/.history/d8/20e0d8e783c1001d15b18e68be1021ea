@@ -1,0 +1,30 @@
+package oasoaso;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		int niz[] = {1, 2, 3, 2, 1, 4, 5, 6, 5, 7};
+		
+		System.out.print(niz.length);
+		
+		List<Integer> lista = new ArrayList<Integer>();
+		
+		for(int x : niz) {
+			lista.add(x);
+		}
+		
+		for(int i=0; i<niz.length; i++) {
+			for (int j=1; j<niz.length; j++) {
+				if(niz[i] == niz[j]) {
+					lista.remove(j);
+				}
+			}
+		}		
+		System.out.println(lista);
+
+	}
+
+}

@@ -1,0 +1,48 @@
+package djuric;
+
+import java.text.DecimalFormat;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost n: ");
+		int n = sc.nextInt();
+		
+		double x[] = new double[100];
+		double y[] = new double[100];
+		
+		for (int i=1; i<=n; i++) {
+			System.out.println("Unesite koordinate " + i + ". tacke: ");
+			System.out.print("x = ");
+			x[i] = sc.nextDouble();
+			System.out.print("y = ");
+			y[i] = sc.nextDouble();
+		}
+		
+		x[0] = x[n];
+		x[n+1] = x[1];
+		y[0] = y[n];
+		y[n+1] = y[1];
+		
+		double suma = 0;
+		
+		for (int i=1; i<=n; i++) {
+			suma += y[i]*(x[i-1]-x[i+1]);
+		}
+		double p = suma/2;
+		
+		System.out.println("P = " + p);
+
+
+	}
+}
+
+
+

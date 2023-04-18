@@ -1,0 +1,39 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class aswws {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj clanova niza: ");
+		int n = sc.nextInt();
+		
+		int x[] = new int[n];
+		
+		System.out.println("Unesite clanove niza: ");
+		
+		for (int i = 1; i < x.length; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextInt();
+		}
+		
+		int max = x[1];
+		int a = 1, brojac = 1;
+		
+		for (int i = 2; i < x.length; i++) {
+			if (x[i]>max) {
+				max = x[i];
+				a = brojac;
+			}
+			brojac++;
+		}
+		
+		System.out.println("Indeks maximalnog clana " + max + " je " + a);
+	
+
+		}
+	}
+		

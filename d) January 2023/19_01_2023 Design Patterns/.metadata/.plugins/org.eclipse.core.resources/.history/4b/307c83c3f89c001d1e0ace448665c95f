@@ -1,0 +1,18 @@
+package djuric;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Synths svi[] = Synths.values();
+		
+		for(Synths x : svi) {
+			System.out.print(x + " ");
+		}
+		
+		Synths a = Synths.valueOf("MOOG");
+		System.out.println(a);
+
+	}
+
+}

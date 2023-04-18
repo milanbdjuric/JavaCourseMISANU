@@ -1,0 +1,27 @@
+package oasoaso;
+
+public class casww {
+	
+	public static<T> void stampajNiz(T niz[]){
+		for(T x: niz) {
+			System.out.print(x + " ");
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Integer niz1[] = {1,2,3,4,5};
+		Double niz2[] = {1.1,2.2,3.3,4.4,5.5};
+		Character niz3[] = {'a','b','c','d','e'};
+		
+		stampajNiz(niz1);
+		stampajNiz(niz2);
+		stampajNiz(niz3);
+		
+		
+
+	}
+
+}

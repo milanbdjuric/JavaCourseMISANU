@@ -1,0 +1,34 @@
+package djuric;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		List<String> LList = new LinkedList<String>();
+		
+		LList.add(0, "K");
+		LList.add("U");
+		LList.add("R");
+		LList.add("A");
+		LList.add("C");
+		
+		ListIterator<String> itr = LList.listIterator();
+		
+		System.out.println("Kretanje kroz listu od prvog do poslednjeg elementa: ");
+		
+		while(itr.hasNext()) {   // kretanje
+			System.out.print(itr.next() + " ");
+		}
+		
+		System.out.println("\nKretanje kroz listu od poslednjeg do prvog elementa: ");
+		
+		while(itr.hasPrevious()) {
+			System.out.print(itr.previous() + " ");
+		}
+		
+
+	}
+
+}

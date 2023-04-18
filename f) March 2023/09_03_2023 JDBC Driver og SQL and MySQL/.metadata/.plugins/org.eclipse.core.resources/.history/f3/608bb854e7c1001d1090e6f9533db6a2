@@ -1,0 +1,19 @@
+package oasoaso;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		A a = new A();
+		Thread t1 = new Thread();
+		Thread t2 = new Thread();
+		Thread t3 = new Thread();
+		
+		a.run();
+		t1.start();
+		t2.start();
+		t3.start();
+
+	}
+
+}

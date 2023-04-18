@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner kurac = new Scanner(System.in);
+		
+		System.out.println("Unesi kilobajte datiga pretvorim u bajte: ");
+		
+		double x = kurac.nextDouble();
+		
+		System.out.println("Sacu ti kazem to ti je " + x / 1024 + " bajtiju.");
+		
+	
+
+
+	}
+
+}

@@ -1,0 +1,53 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		System.out.println("Ucitajte vrednost za n: ");
+		int n = sc.nextInt();
+		
+		double a[] = new double[100];
+		double x[] = new double[100];
+		double y[] = new double[100];
+		
+		System.out.println("Ucitajte clanove nizova a, x i y: ");
+		
+		for (int i = 1; i <=n; i++) {
+			System.out.print("a[" + i + "] = ");
+			a[i] = sc.nextDouble();
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextDouble();
+			System.out.print("y[" + i + "] = ");
+			y[i] = sc.nextDouble();
+		}
+		
+		double A = 0, sumaX = 0, sumaY = 0;
+		
+		for (int i = 1; i <=n; i++) {
+			A += a[i];
+			sumaX += a[i]*x[i];
+			sumaY += a[i]*y[i];
+		}
+		
+		double XT = sumaX/A;
+		double YT = sumaY/A;
+		
+		System.out.println(" A = " + df.format(A));
+		System.out.println("XT = " + df.format(XT));
+		System.out.println("YT = " + df.format(YT));
+
+		
+	}
+}
+
+
+

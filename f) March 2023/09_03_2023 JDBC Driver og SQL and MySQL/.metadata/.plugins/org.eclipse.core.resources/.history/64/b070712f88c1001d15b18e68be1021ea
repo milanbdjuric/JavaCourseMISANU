@@ -1,0 +1,17 @@
+package oasoaso;
+
+public class Djak extends Osoba{
+	
+	private String nazivSkole, razred;
+
+	Djak(String ime, String datum, String adresa, String nazivSkole, String razred) {
+		super(ime, datum, adresa);
+		this.nazivSkole = nazivSkole;
+		this.razred = razred;
+	}
+	
+	public String opis() {
+		return super.opis() + "\nNAZIV SKOLE: " + nazivSkole + "\nRAZRED: " + razred;
+	}
+
+}

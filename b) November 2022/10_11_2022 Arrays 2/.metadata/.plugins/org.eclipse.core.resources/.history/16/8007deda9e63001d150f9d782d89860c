@@ -1,0 +1,42 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost za a: ");
+		double a = sc.nextDouble();
+		
+		System.out.println("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		
+		double x[] = new double[100];
+		
+		System.out.println("Unesite vrednosti niza X: ");
+		
+		for (int i=1; i<=n; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextDouble();
+		}
+		
+		double ver = n*Math.sqrt(a);
+		
+		for (int i = (n-1); i >= 1; i--) {
+			ver = (i*Math.sqrt(a) + x[i]-x[i]+1) / ver;
+		}
+		
+		System.out.println("Resenje je: " + ver);
+		
+
+
+	}
+}
+
+
+

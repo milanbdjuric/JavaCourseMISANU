@@ -1,0 +1,30 @@
+package dj;
+
+public class Motor {
+	
+	String marka;
+	double kubikaza;
+	
+	public String getMarka() {
+		return marka;
+	}
+	public void setMarka(String marka) throws Exception {
+		if (marka.isBlank() || marka.isEmpty())
+			throw new Exception("Ne moze prazno. ");
+		else
+			this.marka = marka;
+	}
+	public double getKubikaza() {
+		return kubikaza;
+	}
+	public void setKubikaza(double kubikaza) throws Exception {
+		if (kubikaza > 50 && kubikaza < 2000)
+			this.kubikaza = kubikaza;
+		else
+			throw new Exception("Mora vece od 50 i manje od 2000");
+	}
+	public void ispisi() {
+		System.out.println("Motor marke " + marka + " ima kubikazu od " + kubikaza + ".");
+	}
+
+}

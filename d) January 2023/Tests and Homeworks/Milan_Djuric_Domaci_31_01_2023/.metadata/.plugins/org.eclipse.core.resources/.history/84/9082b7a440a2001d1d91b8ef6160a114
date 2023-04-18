@@ -1,0 +1,39 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		LinkedList<Integer> x = new LinkedList<Integer>();
+		
+		System.out.println("Unesite dekadni broj: ");
+		int n = sc.nextInt();
+		
+		if(n==0)
+			System.out.print(n);
+		
+		while(n>0) {
+			if(n%2==0)
+				x.addFirst(0);
+			else
+				x.addFirst(1);
+			n/=2;
+		}
+		
+		System.out.println("Binarni broj je: ");
+		
+		for(int y : x) {
+			System.out.print(y);
+		}
+		
+
+		
+
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package wdjba;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		System.out.println("\tR.BR.\tX\tY(X)");
+		
+		double y, x;
+		int i=0;
+		
+		for (x=1.0; x<=5.0; x+=0.5) {
+			y = x - 0.8*Math.pow(x, 2.0);
+			i++;
+			System.out.println("\t" + i + "\t" + x + "\t" + y);
+		}
+		
+		
+
+
+		
+	}
+
+}

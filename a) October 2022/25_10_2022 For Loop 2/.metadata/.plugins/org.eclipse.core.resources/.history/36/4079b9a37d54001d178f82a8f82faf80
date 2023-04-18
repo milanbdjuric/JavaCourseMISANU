@@ -1,0 +1,29 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double s = 0;
+		
+		System.out.println("Unesite n: ");
+		
+		double n = sc.nextDouble();
+		
+		if (n<100) {
+		
+			for (double i = 1; i <= n; i++) {
+				if (i != 3) {
+					s += (i + 3.5) / (i - 3.0);
+				}
+			}
+
+		}
+		
+		System.out.println("S = " + s);
+	}
+}

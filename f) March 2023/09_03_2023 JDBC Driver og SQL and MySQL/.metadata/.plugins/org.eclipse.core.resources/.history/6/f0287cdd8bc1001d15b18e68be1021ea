@@ -1,0 +1,29 @@
+package oasoaso;
+
+public class Mjjj{
+
+	public static void main(String[] args) {
+		
+	TestirajBroj br = (n) -> (n%2==0);
+	
+	if(br.test(10))
+		System.out.println("paran");
+	else
+		System.out.println("neparan");
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+	
+	
+
+}

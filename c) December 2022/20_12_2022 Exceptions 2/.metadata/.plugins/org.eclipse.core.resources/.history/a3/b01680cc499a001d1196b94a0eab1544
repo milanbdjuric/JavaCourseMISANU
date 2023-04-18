@@ -1,0 +1,36 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+	
+	public static void main(String[] args) throws Exception{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Broj x = new Broj();
+		
+		x.unesi();
+		
+		try {
+			if (x.getBroj()<100 || x.getBroj()>999)
+				throw new Exception("Ne moze bre duvaj kurac aj ponovo:");
+		} catch (Exc e) {
+			System.out.println(e.getMessage());
+			x.unesi();
+		}
+		
+		int j = x.getBroj() % 10;
+		int d = (x.getBroj() / 10) % 10;
+		int s = x.getBroj() / 100;
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

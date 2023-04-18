@@ -1,0 +1,7 @@
+package oasoaso;
+
+public interface TestirajBroj {
+	
+	public boolean test(int n);
+
+}

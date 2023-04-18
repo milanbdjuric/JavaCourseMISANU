@@ -1,0 +1,13 @@
+package dj;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Lambada kurac = (a) -> (a==0);
+		
+		System.out.println(kurac.a(6));
+
+	}
+
+}

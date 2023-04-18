@@ -1,0 +1,18 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Kocka k[] = new Kocka[3];
+		
+		for (int i = 0; i<=3; i++) {
+			
+			System.out.println("Povrsina " + i + ". kocke je " + k[i].izracunajPovrsinu());
+			System.out.println("Zapremina " + i + ". kocke je " + k[i].izracunajZapreminu());
+		
+
+		}
+	}
+
+}

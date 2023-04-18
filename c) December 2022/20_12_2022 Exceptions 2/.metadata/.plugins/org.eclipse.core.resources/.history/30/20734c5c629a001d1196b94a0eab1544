@@ -1,0 +1,19 @@
+package dj;
+
+public class Dsdan {
+
+	public static void main(String[] args) {
+		
+		Student x = new Student();
+		
+		try {
+			x.setImePrezime("Zika Lazic");
+			x.setBrojIndeksa(1389);
+			x.setProsecnaOcena(lj);
+		} catch (Exception e) {
+			System.out.println("Fatilji smo exceptiona!");
+		}
+
+	}
+
+}

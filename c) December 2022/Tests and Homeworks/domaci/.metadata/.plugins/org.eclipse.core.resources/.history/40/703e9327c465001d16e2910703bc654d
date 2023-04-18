@@ -1,0 +1,67 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Unesite broj redova i kolona kvadratne matrice: ");
+		int rk = sc.nextInt();
+		
+		int x[][] = new int[rk][rk];
+		int y[][] = new int[rk][rk];
+		
+		System.out.println("\nUnesite elemente matrice x: ");
+		
+		for (int i=0; i<rk; i++) {
+			for (int j=0; j<rk; j++) {
+				System.out.print("x[" + i + "," + j + "] = ");
+				x[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("\nUnesite elemente matrice y: ");
+		
+		for (int i=0; i<rk; i++) {
+			for (int j=0; j<rk; j++) {
+				System.out.print("y[" + i + "," + j + "] = ");
+				x[i][j] = sc.nextInt();
+			}
+		}
+		
+		System.out.println("\Matrica x: ");
+		
+		for (int i=0; i<rk; i++) {
+			for (int j=0; j<rk; j++) {
+				System.out.print(x[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("\Matrica y: ");
+		
+		for (int i=0; i<rk; i++) {
+			for (int j=0; j<rk; j++) {
+				System.out.print(y[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("\nProizvod dve kvadratne matrice je: ");
+		
+		int z[][] = new int[rk][rk];
+		
+		for (int i=0; i<rk; i++) {
+			for (int j=0; j<rk; j++) {
+				z[i][j] = x[i][j]*y[i][j];
+				System.out.print(z[i][j] + " ");
+			}
+			System.out.println();
+		}
+		sc.close();
+		
+	}
+	
+}

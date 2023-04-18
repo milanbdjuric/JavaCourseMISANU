@@ -1,0 +1,25 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		List<Integer> x = new ArrayList<Integer>();
+		
+		for(int i=2; i<=10; i++) {
+			x.add(i);	
+		}
+		
+		for(int  = 3; i<=10; i++) {
+			if (i%2 == 0) {
+				x.remove(i);
+			}
+		}
+		
+		System.out.println(x);
+
+	}
+
+}

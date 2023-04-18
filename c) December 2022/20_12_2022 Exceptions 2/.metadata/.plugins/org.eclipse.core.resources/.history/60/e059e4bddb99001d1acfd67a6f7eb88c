@@ -1,0 +1,19 @@
+package djuric;
+
+public class Artikal {
+	
+	String naziv, proizvodjac, barkod;
+	double cena;
+	
+	public String getNaziv() {
+		return naziv;
+	}
+	public void setNaziv(String naziv) throws IzuzetakArtikal{
+		if(this.naziv.isBlank() || this.naziv.isEmpty()) {
+			throw new IzuzetakArtikal("Fatilji smo ga mamu mu jebem.");
+		this.naziv = naziv;	
+			
+		}
+	}
+
+}

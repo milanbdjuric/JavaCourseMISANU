@@ -1,0 +1,66 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Upisite 'Z' da unesete podatke o zaposlenom ili 'D' da unesete podatke o djaku: ");
+		
+		char a = sc.next().charAt(0);
+		
+		if(a == 'Z') {
+			Zaposlen z = new Zaposlen();
+			
+			System.out.print("Ime: ");
+			z.setIme(sc.nextLine());
+			
+			System.out.print("Datum rodjenja: ");
+			z.setDatumRodjenja(sc.nextLine());
+			
+			System.out.print("Adresa: ");
+			z.setAdresa(sc.nextLine());
+			
+			System.out.print("Naziv firme: ");
+			z.setNazivFirme(sc.nextLine());
+			
+			System.out.print("Naziv odeljenja: ");
+			z.setNazivOdeljenja(sc.nextLine());
+			
+			System.out.println("Uneseni podaci o zaposlenom su: ");
+			z.ispis();
+		}
+		else if(a == 'D') {
+			Djak d = new Djak();
+			
+			System.out.print("Ime: ");
+			d.setIme(sc.nextLine());
+			
+			System.out.print("Datum rodjenja: ");
+			d.setDatumRodjenja(sc.nextLine());
+			
+			System.out.print("Adresa: ");
+			d.setAdresa(sc.nextLine());
+			
+			System.out.print("Naziv skole: ");
+			d.setNazivSkole(sc.nextLine());
+			
+			System.out.print("Razred: ");
+			d.setRazred(sc.nextLine());
+			
+			System.out.println("Uneseni podaci o djaku su: ");
+			d.ispis();
+
+		}
+		else
+			System.out.println("Pogresan unos.");
+		
+
+		
+
+	}
+
+}

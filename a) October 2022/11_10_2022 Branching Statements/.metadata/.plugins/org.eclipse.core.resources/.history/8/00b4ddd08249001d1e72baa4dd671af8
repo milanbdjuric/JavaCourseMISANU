@@ -1,0 +1,35 @@
+package milan.djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// za uneti broj ispitati da li je deljiv brojem 2 i brojem 3
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int x;
+		
+		System.out.println("Unesite broj: ");
+		
+		x = sc.nextInt();
+		
+		
+		
+		if (x%2==0&&x%3==0)
+		{
+			System.out.println("Broj je deljiv i sa 2 i sa tri");
+		}
+		
+		else
+			System.out.println("Nije deljiv i sa 2 i sa 3");
+		
+		
+		sc.close();
+		
+
+	}
+
+}

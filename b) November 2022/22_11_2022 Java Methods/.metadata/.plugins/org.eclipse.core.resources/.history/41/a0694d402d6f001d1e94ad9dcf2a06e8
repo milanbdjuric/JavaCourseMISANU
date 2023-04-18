@@ -1,0 +1,52 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj n: ");
+		int n = sc.nextInt();
+		
+		double suma = 0;
+		
+		double f[] = new double[1000];
+		
+		f[1]=0.5;
+		
+		
+		
+		for (int i=1; i<=n; i++) {
+			suma+=f[i]*f[n+1-i];
+		}
+		
+		if (n<1 || n>1000) {
+			System.out.println("Greska, broj mora biti izmedju 1 i 1000.");
+		}
+		else
+			System.out.println("F(" + n + ") = " + f[n]);
+
+
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,43 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj stapova: ");
+		int m = sc.nextInt();
+		
+		double L[] = new double[100];
+		double b[] = new double[100];
+		double h[] = new double[100];
+		
+		for (int i=1; i<=m; i++) {
+			System.out.println("Za " + i + ". stap: ");
+			System.out.print("Unesite duzinu L[" + i + "] = ");
+			L[i] = sc.nextDouble();
+			System.out.print("Unesite dim.pop.pr. b[" + i + "] = ");
+			b[i] = sc.nextDouble();
+			System.out.print("Unesite dim.pop.pr. h[" + i + "] = ");
+			h[i] = sc.nextDouble();
+		}
+		double F, Imin, imin, lk;
+		
+		System.out.println("b\th\tL\tvitkost");
+		for (int i=1; i<=m; i++) {
+			if (b[i]<h[i]) {
+				F = b[i]*h[i];
+				Imin = Math.pow(b[i], 3)*h[i]/12;
+				imin = Math.sqrt(Imin/F);
+				lk = L[i]/imin;
+				System.out.println(b[i] + "\t" + h[i] + "\t" + L[i] + "\t" + lk);
+			}
+		}
+		
+
+	}
+
+}

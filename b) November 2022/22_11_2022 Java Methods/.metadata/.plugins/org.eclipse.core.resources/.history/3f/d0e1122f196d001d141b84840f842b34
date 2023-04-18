@@ -1,0 +1,63 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+	static void matra(int matra[][], int r, int k) {
+		for (int i = 1; i<=r; i++) {
+			for (int j = 1; j<=k; j++) {
+				System.out.print(matra[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	static void zamena(int matra[][], int matrab[][], int r, int k) {
+		for (int i = 1; i<=r; i++) {
+			for (int j = 1; j<=k; j++) {
+				matrab[j][i]=matra[i][j];
+			}
+		}
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Unesite duzinu reda: ");
+		int r = sc.nextInt();
+		System.out.println("Unesite duzinu kolone: ");
+		int k = sc.nextInt();
+		int matra[][] = new int[10][10];
+		int matrab[][] = new int[10][10];
+		System.out.println("Unesite elemente matre: ");
+		for (int i = 1; i<=r; i++) {
+			for (int j = 1; j<=k; j++) {
+				System.out.print("x[" + i + "," + j + "] = ");
+				matra[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("PRE: ");
+		matra(matra, r, k);
+		System.out.println("POSLE: ");
+		zamena(matra, matrab, r, k);
+		matra(matra, k, r);
+
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

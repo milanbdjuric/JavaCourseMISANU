@@ -1,0 +1,17 @@
+package oasoaso;
+
+public class Zaposlen extends Osoba{
+	
+	private String nazivFirme, nazivOdeljenja;
+
+	Zaposlen(String ime, String datum, String adresa, String nazivFirme, String nazivOdeljenja) {
+		super(ime, datum, adresa);
+		this.nazivFirme = nazivFirme;
+		this.nazivOdeljenja = nazivOdeljenja;
+	}
+	
+	public String opis() {
+		return super.opis() + "\nNAZIV FIRME: " + nazivFirme + "\nNAZIV ODELJENJA: " + nazivOdeljenja;
+	}
+
+}

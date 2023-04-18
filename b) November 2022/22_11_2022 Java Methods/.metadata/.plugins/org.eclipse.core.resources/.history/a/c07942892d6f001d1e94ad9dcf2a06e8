@@ -1,0 +1,54 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj n: ");
+		int n = sc.nextInt();
+		
+		double suma = 0;
+		
+		double f[] = new double[1000];
+		
+		f[1]=0.5;
+		
+		for (int i = 1; i<=n; i++) {
+			suma+=f[i];
+		}
+		for (int i = 1; i<=n; i++) {
+			f[n+1] = suma*f[n+1-i];
+		}
+		
+		
+		
+		
+		System.out.println(suma);
+
+
+
+
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

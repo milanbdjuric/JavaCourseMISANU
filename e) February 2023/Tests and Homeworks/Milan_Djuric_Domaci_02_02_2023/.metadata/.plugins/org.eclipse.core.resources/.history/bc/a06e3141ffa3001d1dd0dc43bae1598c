@@ -1,0 +1,16 @@
+package djuric;
+
+public class Zaposleni extends Osoba{
+	
+	String nazivFirme, nazivOdeljenja;
+
+	Zaposleni(String i, String d, String a, String f, String o) {
+		super(i, d, a);
+		nazivFirme = f;
+		nazivOdeljenja = o;
+	}
+
+	public String toString() {
+		return super.toString() + "\nNaziv firme: " + nazivFirme + "\nNaziv odeljenja: " + nazivOdeljenja;
+	}
+}

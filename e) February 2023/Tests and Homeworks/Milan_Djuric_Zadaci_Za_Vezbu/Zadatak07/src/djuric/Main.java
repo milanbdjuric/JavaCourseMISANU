@@ -1,0 +1,41 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double a[] = new double[100];
+		double b[] = new double[100];
+		
+		System.out.println("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		
+		for (int i = 1; i<=2*n; i++) {
+			System.out.print("a[" + i + "] = ");
+			a[i] = sc.nextDouble();
+		}
+		
+	/*  u zadatku pise da niz B ima n elemenata, dok u formuli za niz pise za i = 1, 2, ... , 2n 
+		za svaki slucaj radim i za n i za 2n
+	*/
+
+		System.out.println("\nNiz b[] od n clanova izgleda ovako: ");
+		
+		for (int i=1; i<=n; i++) {
+			b[i] = (a[i]+a[2*n+1-i])/2;
+			System.out.println("b[" + i + "] = " + b[i]);
+		}
+		
+		System.out.println("\nNiz b[] od 2n clanova izgleda ovako: "); 
+		
+		for (int i=1; i<=2*n; i++) {
+			b[i] = (a[i]+a[2*n+1-i])/2;
+			System.out.println("b[" + i + "] = " + b[i]);
+		}
+		sc.close();
+	}
+}

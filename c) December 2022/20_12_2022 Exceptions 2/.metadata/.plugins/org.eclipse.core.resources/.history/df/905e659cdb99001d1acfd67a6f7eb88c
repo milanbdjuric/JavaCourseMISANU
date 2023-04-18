@@ -1,0 +1,23 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejnarijana {
+
+	public static void main(String[] args) throws IzuzetakArtikal {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Artikal kurac = new Artikal();
+		
+		System.out.println("Sta je bre");
+		
+		try {
+			kurac.setNaziv(sc.nextLine());
+		} catch (IzuzetakArtikal e) {
+			e.getMessage();
+		}
+
+	}
+
+}

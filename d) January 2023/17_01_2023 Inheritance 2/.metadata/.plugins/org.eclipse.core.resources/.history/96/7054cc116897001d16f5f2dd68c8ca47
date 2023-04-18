@@ -1,0 +1,18 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Student x = new Student();
+		
+		x.setIme("Milojko");
+		x.setPrezime("Paripovic");
+		x.setStarost(23);
+		x.setIspit("Programiranje");
+		
+		System.out.println("Ime: " + x.getIme() + "\nPrezme: " + x.getPrezime()+"\nStarost: " + x.getStarost()+"\nIspit: " + x.getIspit());
+
+	}
+
+}

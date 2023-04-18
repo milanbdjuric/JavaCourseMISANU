@@ -1,0 +1,72 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		System.out.println("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		
+		double a[] = new double[100];
+		double x[] = new double[100];
+		double y[] = new double[100];
+		
+		double A = 0, sx = 0, sy = 0;
+		
+		for (int i=1; i<=n; i++) {
+			System.out.print("a[" + i + "] = ");
+			a[i] = sc.nextDouble();
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextDouble();
+			System.out.print("y[" + i + "] = ");
+			y[i] = sc.nextDouble();
+		}
+		
+		
+		
+		
+		
+		
+		for (int i=1; i<=n; i++) {
+			A+=a[i];
+			sx+=a[i]*x[i];
+			sy+=a[i]*y[i];
+		}
+		
+		double XT = sx/A;
+		double YT = sy/A;
+		
+		System.out.println("A = " + df.format(A));
+		System.out.println("XT = " + df.format(XT));
+		System.out.println("YT = " + df.format(YT));
+		
+		
+		
+		
+
+
+	}
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

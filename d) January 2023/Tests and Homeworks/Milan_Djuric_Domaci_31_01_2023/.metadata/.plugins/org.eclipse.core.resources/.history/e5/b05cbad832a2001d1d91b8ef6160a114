@@ -1,0 +1,14 @@
+package djuric;
+
+public class GenTip<nj> {
+	
+	nj ob;
+	
+	GenTip(nj ob){
+		this.ob = ob;
+	}
+	
+	public void ispis() {
+		System.out.println("Tip: " + ob.getClass() + ", vrednost: " + ob);
+	}
+}

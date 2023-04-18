@@ -1,0 +1,59 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			System.out.print("Ime: ");
+			String ime = sc.nextLine();
+			
+			System.out.print("Datum rodjenja: ");
+			String datumRodjenja = sc.nextLine();
+			
+			System.out.print("Adresa: ");
+			String adresa = sc.nextLine();
+			
+			System.out.println("Da li je osoba djak ili zaposleni?");
+			String djaposleni = sc.nextLine();
+			
+			if(djaposleni.equalsIgnoreCase("djak")) {
+				
+				System.out.print("Naziv skole: ");
+				String nazivSkole = sc.nextLine();
+				
+				System.out.print("Naziv odeljenja: ");
+				String razred = sc.nextLine();
+				
+				Djak djak = new Djak(ime, datumRodjenja, adresa, nazivSkole, razred);
+				
+				System.out.println("Uneti su sledeci podaci: \n" + djak.toString());
+			}
+			
+			else if(djaposleni.equalsIgnoreCase("zaposleni")) {
+				
+				System.out.print("Naziv firme: ");
+				String nazivFirme = sc.nextLine();
+				
+				System.out.print("Naziv odeljenja: ");
+				String nazivOdeljenja = sc.nextLine();
+				
+				Zaposleni zap = new Zaposleni(ime, datumRodjenja, adresa, nazivFirme, nazivOdeljenja);
+				
+				System.out.println("Uneti su sledeci podaci: \n" + zap.toString());
+			}
+			
+			else
+				System.out.println("Greska.");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		sc.close();
+	}
+}

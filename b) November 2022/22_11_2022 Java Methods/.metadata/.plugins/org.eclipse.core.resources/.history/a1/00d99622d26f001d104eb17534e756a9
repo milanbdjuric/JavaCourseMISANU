@@ -1,0 +1,16 @@
+package djuric;
+
+public class Main {
+
+	public static int kvadratBroja(int x, int y) {
+		return x*y;
+	}
+	
+	public static void main(String[] args) {
+		int x = 10;
+		System.out.println(kvadratBroja(10, 20));
+	
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package djuric;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		A a = new A();
+		
+		Thread t1 = new Thread(a, "KURAC");
+		Thread t2 = new Thread(a, "PICKA");
+		Thread t3 = new Thread(a, "GOVNO");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+
+		
+		
+		
+		
+
+	}
+
+}

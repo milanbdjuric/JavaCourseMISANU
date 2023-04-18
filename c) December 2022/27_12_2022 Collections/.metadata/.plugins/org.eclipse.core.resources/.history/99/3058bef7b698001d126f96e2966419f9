@@ -1,0 +1,19 @@
+package vdjb;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Mein {
+
+	public static void main(String[] args) {
+		
+		List<String> lista = new ArrayList<String>();
+		lista.add(3, "Molim");
+		
+		for(String nj : lista) {
+			System.out.println(nj);
+		}
+
+	}
+
+}

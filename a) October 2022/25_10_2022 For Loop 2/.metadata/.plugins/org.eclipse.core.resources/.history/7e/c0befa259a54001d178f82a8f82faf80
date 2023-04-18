@@ -1,0 +1,28 @@
+package djuric;
+
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		double suma = 0;
+		
+		System.out.println("Unesite vrednost za n: ");
+				
+		int n = Integer.parseInt(br.readLine());
+		
+		for (int i = 1; i <= n; i++)
+			suma += (double)i / (i + 1);
+		
+		System.out.println("S = " + suma);
+
+	}
+
+}
+
+// a = a + 200;
+// isto sto i:
+// a += 200;

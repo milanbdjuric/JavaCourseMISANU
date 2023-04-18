@@ -1,0 +1,12 @@
+package gjurriq;
+
+import java.util.Scanner;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

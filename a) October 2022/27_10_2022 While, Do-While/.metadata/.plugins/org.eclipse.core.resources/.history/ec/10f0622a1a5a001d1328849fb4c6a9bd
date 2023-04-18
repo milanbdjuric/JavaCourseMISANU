@@ -1,0 +1,33 @@
+package wdjba;
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner ulaz = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednaost za a:");
+		int a = ulaz.nextInt();
+		
+		int suma = 0;
+		int brojac = 0;
+		
+		while (a > 5 && a < 20) {
+			if (a % 3 == 0) {
+				suma += a;
+				brojac++;
+				System.out.println("Unesite vrednaost za a:");
+				a = ulaz.nextInt();
+			}
+		}
+		double av = (double) suma/brojac;
+		System.out.println(av);
+		
+		
+		
+
+	}
+}

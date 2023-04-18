@@ -1,0 +1,22 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Kocka k[] = new Kocka[10];
+		k[0] = new Kocka(25.5);
+		k[1] = new Kocka(10.5);
+		k[2] = new Kocka(5.2);
+		
+		for (int i = 0; i<=3; i++) {
+			System.out.println("K[" + i + "] P = " + k[i].izracunajPovrsinu() + " V = " + k[i].izracunajZapreminu());
+
+			
+
+		
+
+		}
+	}
+
+}

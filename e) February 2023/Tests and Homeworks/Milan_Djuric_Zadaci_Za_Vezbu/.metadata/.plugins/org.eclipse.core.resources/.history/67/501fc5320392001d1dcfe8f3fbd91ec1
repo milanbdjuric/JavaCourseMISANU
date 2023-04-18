@@ -1,0 +1,12 @@
+package djuric;
+
+public class F {
+	
+	double x, y;
+	
+	F(double x, double y){
+		this.x = x;
+		this.y = y;
+	}
+
+}

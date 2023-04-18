@@ -1,0 +1,36 @@
+package wdjba;
+
+import java.text.DecimalFormat;
+public class Main {
+
+	public static void main(String[] args) {
+		
+		DecimalFormat d = new DecimalFormat("#.##");
+		
+		System.out.println("\tR.BR.\tX\tY(X)");
+		
+		double y;
+		double x=1.0;
+		int i=0;
+		
+/*		for(x=1.0;x<=5.0;x+=0.5){
+			y=x-0.8*Math.pow(x, 2.0);
+			i++;
+			System.out.println("\t"+i+"\t"+d.format(x)+"\t"+d.format(y));
+		}
+		
+	*/	
+		
+		while(x<=5.0) {
+			y=x-0.8*Math.pow(x, 2.0);
+			i++;
+			x+=0.5;
+			System.out.println("\t"+i+"\t"+d.format(x)+"\t"+d.format(y));
+		
+			
+		}
+
+		
+	}
+
+}

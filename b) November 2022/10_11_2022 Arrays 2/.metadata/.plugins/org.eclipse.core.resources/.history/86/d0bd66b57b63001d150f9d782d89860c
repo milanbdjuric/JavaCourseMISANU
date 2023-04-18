@@ -1,0 +1,62 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite kolko trojki ocete: ");
+		int n  = sc.nextInt();
+		
+		double a[] = new double[100];
+		double b[] = new double[100];
+		double c[] = new double[100];
+		double x[] = new double[100];
+		
+		double s = 0;
+		
+		
+		
+		if (n<=100) {
+			System.out.println("Unesite vrednosti trojki! ");
+			for (int i=1; i<=n; i++) {
+				System.out.println("Za " + i + ". trojku: ");
+				System.out.print("a[" + i + "] = ");
+				a[i] = sc.nextDouble();
+				System.out.print("b[" + i + "] = ");
+				b[i] = sc.nextDouble();
+				System.out.print("c[" + i + "] = ");
+				c[i] = sc.nextDouble();
+			}
+			
+			for (int i=1; i<=n; i++) {
+				if (a[i]+b[i]>c[i]) {
+					x[i] = a[i]*a[i]+b[i]*b[i]+c[i]*c[i];
+				}
+				else if (a[i]+b[i]==c[i]) {
+					x[i] = a[i] + 2*b[i]*c[i];
+				}
+				else {
+					x[i] = a[i]+b[i]-c[i];
+				}
+				s+=x[i];
+			}
+			System.out.println("Zbir " + n + " sabiraka je " + s);
+		}
+		else {
+			System.out.println("Greska, mora biti n<=100");
+		}
+		
+		
+
+	
+	}
+}
+
+
+

@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\DJURIC\Desktop\Vezbanje\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+318395891.index
+26690034.index

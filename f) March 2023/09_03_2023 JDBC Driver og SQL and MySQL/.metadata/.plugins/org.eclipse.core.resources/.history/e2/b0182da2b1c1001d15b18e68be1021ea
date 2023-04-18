@@ -1,0 +1,15 @@
+package oasoaso;
+
+public class Mjdjdwj {
+
+	public static void main(String[] args) {
+		
+		A<Integer> intObjekat = new A<Integer>(67);
+		A<String> intString = new A<String>("Kurac");
+		
+		intObjekat.prikaziTip();
+		intString.prikaziTip();
+
+	}
+
+}

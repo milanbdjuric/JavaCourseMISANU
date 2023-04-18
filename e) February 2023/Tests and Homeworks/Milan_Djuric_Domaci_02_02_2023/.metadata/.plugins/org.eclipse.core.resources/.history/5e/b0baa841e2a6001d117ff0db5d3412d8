@@ -1,0 +1,5 @@
+package djuric;
+
+public abstract class Oblik {
+
+}

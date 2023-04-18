@@ -1,0 +1,21 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		ALBrojevi alb = new ALBrojevi();
+		
+		try {
+			alb.unosBrojeva();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Fatilji smo exceptiona");
+			System.exit(0);
+		}
+		
+		alb.ispisBrojeva();
+
+	}
+
+}

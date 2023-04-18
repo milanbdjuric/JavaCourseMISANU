@@ -1,0 +1,30 @@
+package djuric;
+
+public class Main {
+
+	static double F(double x, double y) {
+		
+		if(x<y)
+			return Math.exp(x) * Math.cos(3*y);
+		else if (x==y)
+			return Math.sin(x);
+		else
+			return 1 + Math.sqrt(Math.abs(x*y));
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		System.out.println("X\tY\tF(X,Y)");
+		
+		for (double x=0.1; x<=0.5; x+=0.1) {
+			for (double y=0.01; y<=0.03; y+=0.01) {
+				System.out.println(x + "\t" + y + "\t" + F(x, y));
+			}
+		}
+		
+		
+
+	}
+
+}

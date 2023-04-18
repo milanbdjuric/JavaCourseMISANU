@@ -1,0 +1,39 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class aswws {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj clanova niza: ");
+		int n = sc.nextInt();
+		
+		int x[] = new int[n];
+		
+		System.out.println("Unesite clanove niza: ");
+		
+		for (int i = 0; i < x.length; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextInt();
+		}
+		
+		int cifra;
+		
+		for (int i = 0; i < x.length; i++) {
+			int a = x[i], p = 1;
+			while (x[i]!=0) {
+				cifra = x[i] % 10;
+				p*=cifra;
+				x[i]/=10;
+			}
+			System.out.println("Proizvod cifara clana niza " + a + " je " + p);
+		}
+		
+
+		sc.close();
+		}
+	}
+		

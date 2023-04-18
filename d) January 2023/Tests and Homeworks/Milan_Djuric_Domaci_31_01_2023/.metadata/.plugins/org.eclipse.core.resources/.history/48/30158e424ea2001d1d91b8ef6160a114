@@ -1,0 +1,35 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+	
+	public static int suma(int broj) {
+		return broj%10 + suma(broj/10);
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj: ");
+		int br = sc.nextInt();
+		
+		int cf, s = 0;
+		
+		while(br!=0) {
+			cf = br%10;
+			s+=cf;
+			br/=10;
+		}
+		
+		System.out.println("S = " + s);
+		
+		sc.close();
+		
+		
+		
+
+	}
+
+}

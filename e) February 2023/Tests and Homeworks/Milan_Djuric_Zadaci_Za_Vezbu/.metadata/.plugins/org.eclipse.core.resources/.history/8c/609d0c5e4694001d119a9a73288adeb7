@@ -1,0 +1,75 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+	
+	public static double B1(double x[], double f[], int n) {
+		
+		double sx = 0, sf = 0, sxf = 0, sx2 = 0;
+		
+		for (int i = 1; i<=n; n++) {
+			sx += Math.log(x[i]);
+			sf += Math.log(f[i]);
+			sxf += Math.log(x[i])*Math.log(f[i]);
+			sx2 += Math.pow(Math.log(x[i]), 2);
+		}
+		return (sx*sf - n*sxf) / (sx2 - n*Math.pow(sx, 2));	
+		}
+	
+	public static double B0(double x[], double f[], int n) {
+		double b0;
+		double sx = 0, sf = 0;
+		
+		for (int i = 1; i<=n; n++) {
+			sx += Math.log(x[i]);
+			sf += Math.log(f[i]);
+		}
+		  b0 = sf - B1(x, f, n)*Math.pow(sx, 2) / n;
+		  return Math.log(b0);
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double x[] = new double[100];
+		double f[] = new double[100];
+
+		
+		System.out.print("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		
+		System.out.print("Unesite vrednosti za niz x[k]: ");
+		for (int k = 0; k<=n; k++) {
+			System.out.print("x[" + k + "] = ");
+			x[k] = sc.nextDouble();
+		}
+		
+		System.out.print("Unesite vrednosti za niz f[k]: ");
+		for (int k = 0; k<=n; k++) { 
+			System.out.print("f[" + k + "] = ");
+			f[k] = sc.nextDouble();
+		}
+		
+		System.out.println("X\tY(X)");
+		
+		for (int k = 0; k<=n; k++) {
+			double y = B0(x, f, k)*Math.pow(x[k], B1(x, f, k));
+			
+			System.out.println(x[k] + "\n" + y);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+	}
+}

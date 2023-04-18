@@ -1,0 +1,7 @@
+package oasoaso;
+
+public interface Obrn {
+	
+	public abstract String brn(String s);
+
+}

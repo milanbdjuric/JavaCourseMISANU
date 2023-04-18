@@ -1,0 +1,29 @@
+package wdjba;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite slovo: ");
+		char slovo  = sc.next().charAt(0);
+		
+		if (slovo >= 'a' && slovo <= 'z' || slovo >= 'A' && slovo <='Z') {
+			switch(slovo) {
+			case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U': {
+				System.out.println("Uneto slovo je samoglasnik. ");
+				break;
+			}
+			default:
+				System.out.println("Uneto slovo je suglasnik. ");
+			}
+		}
+		else
+			System.out.println("Uneti karakter nije slovo.");
+		sc.close();
+
+	}
+}

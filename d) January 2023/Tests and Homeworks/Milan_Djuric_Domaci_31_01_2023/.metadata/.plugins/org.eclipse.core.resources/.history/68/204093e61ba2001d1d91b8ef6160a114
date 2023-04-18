@@ -1,0 +1,28 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		List<Integer> x = new ArrayList<Integer>();
+		
+		for(int a=1; a<=10; a++) {
+			for(int b=2; b<=10; b++) {
+				for(int c=2; c<=10; c++) {
+					if(a==b*c && a>b && a>c)
+						x.add(a);
+				}
+			}
+
+
+		
+
+			
+		}
+		System.out.println(x);
+
+	}
+
+}

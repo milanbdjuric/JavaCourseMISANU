@@ -1,0 +1,26 @@
+package oasoaso;
+
+import java.util.Scanner;
+
+public class Mijijiji {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Dacuem string: ");
+		String s = sc.nextLine();
+		
+		
+		Obrn x = (n) -> {
+			for(int i=s.length()-1; i<=0; i--) {
+				System.out.println(s.charAt(i));
+			}
+			return n;
+
+		};
+		
+
+	}
+
+}

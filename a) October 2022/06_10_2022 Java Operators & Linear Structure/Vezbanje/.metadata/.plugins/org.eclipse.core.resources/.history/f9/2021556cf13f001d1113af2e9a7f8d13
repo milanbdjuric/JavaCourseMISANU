@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Unesite koordinate tacke M1: ");
+		Double x1 = input.nextDouble();
+		Double y1 = input.nextDouble();
+		
+		System.out.println("Unesite koordinate tacke M2: ");
+		Double x2 = input.nextDouble();
+		Double y2 = input.nextDouble();
+		
+		Double d = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+		
+		System.out.println("Medjusobna udaljenost koordinatnih tacaka M1 (" + x1 + ", " + y1 + ") i M2 (" + x2 + ", " + y2 + ") je: " + d);
+		
+		
+
+	}
+
+}

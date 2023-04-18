@@ -1,0 +1,22 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) throws Exc{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite trocivren broj: ");
+		
+		int broj = sc.nextInt();
+		
+		if (broj<100 && broj>999)
+			throw new Exc("Ne moze bre duvaj kurac");
+
+		
+
+	}
+
+}

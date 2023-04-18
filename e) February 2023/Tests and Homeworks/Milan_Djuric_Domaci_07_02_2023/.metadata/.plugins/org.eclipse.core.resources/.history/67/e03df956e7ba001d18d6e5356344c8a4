@@ -1,0 +1,5 @@
+package zdxfhg;
+
+public abstract class Vozilo {
+
+}

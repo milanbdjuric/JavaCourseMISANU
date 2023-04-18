@@ -1,0 +1,26 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Unesite string: ");
+		String a = s.nextLine();
+		
+		int brojac = 0;
+		
+		for(int i = 0; i < a.length(); i++) {
+			if (a.charAt(i) == ' ') {
+				brojac++;
+			}
+		}
+		
+		System.out.println("U stringu " + a + " ima " + brojac + " space karaktera.");
+
+	}
+
+}

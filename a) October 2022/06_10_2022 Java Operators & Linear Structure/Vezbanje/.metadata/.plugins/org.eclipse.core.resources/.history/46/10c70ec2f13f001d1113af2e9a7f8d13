@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Ucitaj dvocifren broj: ");
+		
+		int a = input.nextInt();
+		
+		int d = a / 10;
+		int j = a % 10;
+		
+		System.out.println("Desetica je " + a / 10 + " a jedninica " + a % 10);
+		
+		
+		
+	}
+
+}

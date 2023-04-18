@@ -1,0 +1,31 @@
+package dj;
+
+import java.util.Scanner;
+
+public class Mejnara {
+
+	public static void main(String[] args) throws Exception {
+		
+		Casopis xxx = new Casopis();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+		
+		System.out.print("Naslov: ");
+		xxx.setNaslov(sc.nextLine());
+		System.out.print("Izdavac: ");
+		xxx.setIzdavac(sc.nextLine());
+		System.out.print("Broj: ");
+		xxx.setBroj(sc.nextInt());
+		System.out.print("Cena: ");
+		xxx.setCena(sc.nextDouble());
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			main(args);
+		}finally {
+			System.out.println("Fala i dovidjenja.");
+		}
+	}
+
+}

@@ -1,0 +1,34 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double x[] = new double[10];
+		
+		for(int i=0; i<10; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextDouble();
+		}
+		
+		int brojac = 0;
+		
+		System.out.print("Unesite trazeni broj: ");
+		double nj = sc.nextDouble();
+		
+		for(double y : x) {
+			if (y==nj)
+				brojac++;
+		}
+		
+		System.out.println("Broj " + nj + " se pojavljuje " + brojac + " u nizu x[].");
+		
+		sc.close();
+
+	}
+
+}

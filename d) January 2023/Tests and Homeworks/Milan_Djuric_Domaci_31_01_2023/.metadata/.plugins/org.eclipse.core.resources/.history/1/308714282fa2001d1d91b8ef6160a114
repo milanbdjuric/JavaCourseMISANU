@@ -1,0 +1,25 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		List<Integer> x = new LinkedList<Integer>();
+		
+		// 1 ne moze biti prost broj pa krecemo for petlju od 2
+		
+		for(int i=2; i<=10; i++) {
+			boolean nj = true; // prvo pretpostavljamo da su svi prosti brojevi, ukoliko se ne dokaze suprotno
+			for(int j=2; j<i; j++) { // trazimo integere koji nisu prosti. delilac mora biti manji od deljenika
+								     // krecemo od 2 jer su svi brojevi (pa i prosti) deljivi sa 1
+				if (i%j==0)
+					nj = false; // ako je deljiv sa celim brojem vecim od 1 a manjim od sebe - nije prost broj 
+			}
+			if(nj)
+				x.add(i);
+		}
+		System.out.println(x);
+	}
+}

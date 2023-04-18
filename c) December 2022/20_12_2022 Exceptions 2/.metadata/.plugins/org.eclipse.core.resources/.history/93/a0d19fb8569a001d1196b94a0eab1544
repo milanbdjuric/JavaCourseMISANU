@@ -1,0 +1,10 @@
+package dj;
+
+public class TstMtr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

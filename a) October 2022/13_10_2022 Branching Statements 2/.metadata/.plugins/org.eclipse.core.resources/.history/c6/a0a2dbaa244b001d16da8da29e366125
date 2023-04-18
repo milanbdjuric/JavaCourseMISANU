@@ -1,0 +1,61 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite znak za operaciju: ");
+		char znak = sc.next().charAt(0);
+		
+		System.out.println("Unesite realni operand a: ");
+		double a = sc.nextDouble();
+		
+		System.out.println("Unesite realni operand b: ");
+		double b = sc.nextDouble();
+		
+/*		switch(znak) {
+		case '+': {
+			System.out.println("a + b = " + (a+b));
+			break;
+		}
+		case '-': {
+			System.out.println("a - b = " + (a-b));
+			break;
+		}
+		case '*': {
+			System.out.println("a * b = " + (a*b));
+			break;
+		}
+		case '/': {
+			System.out.println("a / b = " + (a/b));
+			break;
+		}
+		default:
+			System.out.println("Unesite samo +, -, * ili /");
+		}
+*/		
+		
+		if (znak == '+') {
+			System.out.println("a + b = " + (a+b));
+		}
+		else if (znak == '-') {
+			System.out.println("a - b = " + (a-b));
+		}
+		else if (znak == '*') {
+			System.out.println("a * b = " + (a*b));
+		}
+		else if (znak == '/') {
+			System.out.println("a / b = " + (a/b));
+		}
+		else
+			System.out.println("Unesite samo +, -, * ili /");
+		
+		sc.close();
+
+	}
+
+}

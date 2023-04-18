@@ -1,0 +1,13 @@
+package fwefwe;
+
+public class Mijijijijen {
+
+	public static void main(String[] args) {
+		
+		A kurac = new A("KURAC");
+		
+		kurac.start();
+
+	}
+
+}

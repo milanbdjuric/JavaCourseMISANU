@@ -1,0 +1,19 @@
+package djuric;
+
+public class Zaposlen extends Osoba{
+
+	private String nazivFirme, nazivOdeljenja;
+
+	public void setNazivFirme(String nazivFirme) {
+		this.nazivFirme = nazivFirme;
+	}
+
+	public void setNazivOdeljenja(String nazivOdeljenja) {
+		this.nazivOdeljenja = nazivOdeljenja;
+	}
+
+	public void ispis() {
+		System.out.println("Ime: " + getIme() + "\nDatum rodjenja: " + getDatumRodjenja() + "\nAdresa: " + getAdresa() +
+				"\nNaziv firme: " + nazivFirme + "\nNaziv odeljenja: " + nazivOdeljenja);
+	}
+}

@@ -1,0 +1,31 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		List<Integer> x;
+		try {
+			x = new ArrayList<Integer>();
+			
+			for(int i=1; i<=10; i++) {
+				x.add(i);	
+			}
+			
+			for(int i=3; i<=10; i++) {
+				if (x.get(i)%2==0) {
+					x.remove(i);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(x);
+
+	}
+
+}

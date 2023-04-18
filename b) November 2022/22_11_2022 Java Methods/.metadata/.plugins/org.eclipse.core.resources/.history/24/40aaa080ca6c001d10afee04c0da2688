@@ -1,0 +1,59 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+	static int zamena (int x[][], int i, int j) {
+		return x[i][j] = x[j][i];
+	}
+	
+
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite dimenziju matrice: ");
+		int n = sc.nextInt();
+		
+		System.out.println("Unesite elemente matrice: ");
+		
+		int x[][] = new int [100][100];
+		
+		for (int i = 1; i<n; i++) {
+			for (int j = 1; j<n; j++) {
+				System.out.print("matrica[" + i + "][" + j + "] = ");
+				x[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("Stampanje matrice pre zamene elemenata: ");
+		
+		for (int i = 1; i<=n; i++) {
+			for (int j = 1; j<=n; j++) {
+				System.out.print(x[i][j] + " ");		
+			}
+			System.out.println();
+		
+		
+		
+		}}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

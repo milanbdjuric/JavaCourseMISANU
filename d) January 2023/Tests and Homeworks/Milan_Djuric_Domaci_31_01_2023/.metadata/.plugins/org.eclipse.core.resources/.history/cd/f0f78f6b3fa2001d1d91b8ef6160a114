@@ -1,0 +1,37 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		List<Character> x = new ArrayList<Character>();
+		ListIterator<Character> i = x.listIterator();
+		
+		System.out.println("Unesite dekadni broj: ");
+		int n = sc.nextInt();
+		
+		while(n>0) {
+			if(n%2==0)
+				x.add('0');
+			else
+				x.add('1');
+			n/=2;
+		}
+		
+		for(char y : x) {
+			System.out.print(y);
+		}
+		
+		while(i.hasNext()) {
+			System.out.print(i.next());
+	}
+		
+
+
+	}
+
+}

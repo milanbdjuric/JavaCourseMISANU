@@ -1,0 +1,40 @@
+package djuric;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		System.out.print("Unseite: n = ");
+		double n = sc.nextDouble();
+		
+		System.out.print("Unesite: a = ");
+		double a = sc.nextDouble();
+		
+		System.out.print("Unesite: eps = ");
+		double eps = sc.nextDouble();
+		
+		double x0 = (a+n-1)/n;		
+		double x1 = ((n-1)*x0 + a/Math.pow(x0, n-1)) / n;
+
+		while (Math.abs(x1-x0)>eps) {
+			x0 = x1;
+			x1 = ((n-1)*x0 + a / Math.pow(x0, n-1))/n;
+		}	
+		System.out.println("Izracunato while petljom: x = " + df.format(x1));
+		
+		do {
+			x0 = x1;
+			x1 = ((n-1)*x0+a/Math.pow(x0, n-1))/n;
+		}while(Math.abs(x1-x0)>eps);
+		
+		System.out.println("Izracunato do-while petljom: x = " + df.format(x1));
+		
+		sc.close();
+	}
+}

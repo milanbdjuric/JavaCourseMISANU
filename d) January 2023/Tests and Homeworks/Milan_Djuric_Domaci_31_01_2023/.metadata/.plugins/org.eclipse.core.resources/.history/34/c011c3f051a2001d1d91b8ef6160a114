@@ -1,0 +1,33 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+	
+	public static int suma(int broj) {   // staticka metoda za izracunavanje sume cifara za dati/uneti integer
+//		if (broj == 0)
+//			return 0;
+		return (broj%10) + suma(broj/10); // odvajamo cifru jedinice broju i sabiramo ga sumo
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			System.out.println("Unesite broj: ");
+			
+			System.out.println("S = " + suma(sc.nextInt()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		sc.close();
+		
+		
+		
+
+	}
+
+}

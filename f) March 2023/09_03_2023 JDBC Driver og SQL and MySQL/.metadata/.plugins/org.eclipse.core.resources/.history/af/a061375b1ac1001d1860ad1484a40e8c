@@ -1,0 +1,32 @@
+package oasoaso;
+
+import java.io.*;
+import java.util.*;
+
+public class ALBrojevi {
+	
+	ArrayList<Integer> x = new ArrayList<Integer>();
+	
+	void unosBrojeva() throws Exception {
+	
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		
+		Boolean b = true;
+		
+		while (true) {
+			System.out.print("Unesi jbro: ");
+			int jbro = Integer.parseInt(bf.readLine());
+			if(jbro == -1) {
+				return;
+			}
+			x.add(jbro);
+
+		}		
+	}
+	
+	void ispis() {
+		System.out.println(x);
+	}
+	
+	
+}

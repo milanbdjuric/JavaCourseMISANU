@@ -1,0 +1,27 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite dan, mesec i godinu: ");
+		
+		int dan = sc.nextInt();
+		int mesec = sc.nextInt();
+		int godina = sc.nextInt();
+		
+		int x = dan + 7;
+		
+		if (x > 31) {
+			int y = mesec + 1;
+			dan = x - 31;
+			System.out.print(x + "." + y + "." + godina);
+		}
+
+	}
+
+}

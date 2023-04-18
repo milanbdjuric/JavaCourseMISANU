@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner unos = new Scanner(System.in);
+		
+		System.out.println("reci sekunda t ati kazem kolko je to u satima, minutima i sekundama leba ti");
+		
+		int sekund = unos.nextInt();
+		
+		double sat = sekund / 3600;
+		double minut = sekund % 3600 / 60;
+		double s = minut % 60;
+		
+		System.out.println("To ti je " + sat + ":" + minut + "+" + s);
+		
+		
+
+		
+	}
+
+}

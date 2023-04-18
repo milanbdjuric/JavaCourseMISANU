@@ -1,0 +1,55 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost za n: ");
+		double n = sc.nextDouble();
+		System.out.println("Unesite vrednost za a: ");
+		double a = sc.nextDouble();
+		System.out.println("Unesite vrednost za eps: ");
+		double eps = sc.nextDouble();
+		
+		double x0 = (a+n-1)/n;
+		
+		double x1 = ((n-1)*x0 + a/Math.pow(x0, n-1)) / n;
+
+		
+		while (Math.abs(x1-x0)>eps) {
+			x0 = x1;
+			x1 = (n-1)*x0+a/Math.pow(x0, n-1)/n;
+		}
+		
+		System.out.println("x = " + x1);
+		
+/*		do {
+			x0 = x1;
+			x1 = (n-1)*x0+a/Math.pow(x0, n-1)/n;
+		}while(Math.abs(x1-x0)>eps);
+		
+		System.out.println("x = " + x1);
+*/		
+		sc.close();
+		
+
+		
+		
+		
+
+	
+
+			
+			
+			
+		
+		
+
+
+	}
+
+}

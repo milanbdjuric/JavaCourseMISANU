@@ -1,0 +1,63 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj tacaka ne veci od 100: ");
+		int n = sc.nextInt();
+		double x[] = new double[100];
+		double y[] = new double[100];
+		for (int i=1; i<=n; i++) {	
+		System.out.println("Unesite koordinate " + i + ". tacke: ");
+		System.out.print("x = ");
+		x[i] = sc.nextDouble();
+		System.out.print("y = ");
+		y[i] = sc.nextDouble();
+		}	
+		if (n>100)
+			System.out.println("Greska, n mora biti ne veci od 100.");
+		else {
+			System.out.println("R.BR.\tX\tY\tOBLAST");
+			for (int i = 1; i<=n; i++) {
+				if (Math.pow(x[i]-1, 2)+Math.pow(y[i], 2)<=1 && Math.pow(x[i]-2, 2)+Math.pow(y[i], 2) >1) {
+					System.out.println(i + "\t" + x[i] + "\t" + y[i] + "\t 1");
+				}
+				else if (Math.pow(x[i]-1, 2)+Math.pow(y[i], 2)<=1 && Math.pow(x[i]-2, 2)+Math.pow(y[i], 2) <=1) {
+					System.out.println(i + "\t" + x[i] + "\t" + y[i] + "\t 2");
+				}
+				else if (Math.pow(x[i]-1, 2)+Math.pow(y[i], 2)>1 && Math.pow(x[i]-2, 2)+Math.pow(y[i], 2) <=1) {
+					System.out.println(i + "\t" + x[i] + "\t" + y[i] + "\t 3");
+				}
+				else
+					System.out.println(i + "\t" + x[i] + "\t" + y[i] + "\t *");
+		}
+		
+		
+		}	
+		
+
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

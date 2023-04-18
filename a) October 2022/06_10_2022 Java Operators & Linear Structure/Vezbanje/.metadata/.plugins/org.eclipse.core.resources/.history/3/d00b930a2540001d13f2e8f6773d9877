@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class IndexTelesneMase {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Unesite masu, zatim i visinu");
+		
+		int m = input.nextInt();
+		int h = input.nextInt();
+		
+		System.out.println("Indeks telesne mase je: " + (m / (Math.pow(h, 2))));
+		
+		
+
+	}
+
+}

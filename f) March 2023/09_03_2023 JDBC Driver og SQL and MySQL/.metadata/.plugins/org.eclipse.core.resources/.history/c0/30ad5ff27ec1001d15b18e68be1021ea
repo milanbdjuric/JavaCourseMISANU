@@ -1,0 +1,19 @@
+package oasoaso;
+
+public class Mejn {
+
+	public static void main(String[] args) throws Exception {
+		
+		ALBrojevi a = new ALBrojevi();
+		
+		a.unosBrojeva();
+		
+		
+		
+		
+		a.ispis();
+		
+
+	}
+
+}

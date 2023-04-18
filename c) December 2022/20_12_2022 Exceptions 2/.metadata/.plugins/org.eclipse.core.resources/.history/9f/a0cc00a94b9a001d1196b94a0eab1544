@@ -1,0 +1,46 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+	
+	public static void main(String[] args) throws Exc{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Broj x = new Broj();
+		
+		x.unesi();
+		
+		int broj = x.getBroj();
+		
+		try {
+			if (broj<100 || broj>999)
+				throw new Exc("Ne moze bre duvaj kurac aj ponovo:");
+		} catch (Exc e) {
+			System.out.println(e.getMessage());
+
+		}
+		
+		int j = broj % 10;
+		int d = (broj / 10) % 10;
+		int s = broj / 100;
+		
+		x.setD(d);
+		x.setJ(j);
+		x.setS(s);
+		
+		System.out.println("Pdoizwot civara: " + x.proizvodCifara(j, d, s));
+		System.out.println("Suma kumowa" + x.sumaKumova(j, d, s));
+		System.out.println("Suma kumowa" + x.obrni(j, d, s));
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

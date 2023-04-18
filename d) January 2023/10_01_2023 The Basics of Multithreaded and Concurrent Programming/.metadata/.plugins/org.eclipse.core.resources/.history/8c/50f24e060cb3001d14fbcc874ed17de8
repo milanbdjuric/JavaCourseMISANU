@@ -1,0 +1,9 @@
+package fwefwe;
+
+public class Kurac implements Runnable{
+
+	public void run() {
+		System.out.println("Duvaj kurac majmune glavati. ");
+	}
+
+}

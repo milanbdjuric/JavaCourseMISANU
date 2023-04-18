@@ -1,0 +1,5 @@
+package oasoaso;
+
+public interface Obrn {
+
+}

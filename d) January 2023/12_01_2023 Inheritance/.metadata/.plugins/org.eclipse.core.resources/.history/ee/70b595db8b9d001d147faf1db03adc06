@@ -1,0 +1,11 @@
+package dsdc;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Sujkla<Double, String> panj = new Sujkla<Double, String>(25.5, "PUSIKURAC");
+
+	}
+
+}

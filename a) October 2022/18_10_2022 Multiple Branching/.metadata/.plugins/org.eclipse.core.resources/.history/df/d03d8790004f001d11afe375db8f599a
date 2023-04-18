@@ -1,0 +1,58 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite kategoriju: ");
+		
+		char slovo = sc.next().charAt(0);
+		
+/*		switch (slovo) {
+		case 'a', 'A': {
+			System.out.println("Moz vozis motor");
+			break;
+		}
+		case 'b', 'B': {
+			System.out.println("Moz vozis kola");
+			break;
+		}
+		case 'c', 'C': {
+			System.out.println("Moz vozis kamion");
+			break;
+		}
+		case 'd', 'D': {
+			System.out.println("Moz vozis bus");
+			break;
+		}
+		default: {
+			System.out.println("Nisi ga dobro uno!");
+		}
+		}
+*/
+		
+		if (slovo == 'a') {
+			System.out.println("Moz vozis motor");
+		}
+		else if (slovo == 'b') {
+			System.out.println("Moz vozis kola");
+		}
+		else if (slovo == 'c') {
+			System.out.println("Moz vozis kamion");
+		}
+		else if (slovo == 'd') {
+			System.out.println("Moz vozis bus");
+		}
+		else {
+			System.out.println("Nisi ga dobro uno!");
+		}
+		
+		sc.close();
+		
+	}
+
+}

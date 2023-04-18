@@ -1,0 +1,45 @@
+package tke;
+
+public class finallyBlockWithException {
+	
+	static void procA() {
+		
+		try {
+			
+			System.out.println("inside procA");
+			
+			throw new RuntimeException("demo");			  // throws je u zaglavlju metode, a throw se koristi za bacanje izuzetka u telu metode
+		
+		} finally {	
+														// finally blok se izvrsava bez obzira da li je ili nije doslo do izuzetka
+			System.out.println("procA");
+		}
+	}
+	
+	static void procB() {
+		
+		try {
+			
+			System.out.println("procB");
+			
+			return;
+			
+		} finally {
+			
+			System.out.println("procB`s finally");
+		}
+	}
+	
+	static void procC() {
+		
+		try {
+			
+			System.out.println("inside procC");
+		
+		} finally {
+			
+			System.out.println("procC`s finally");
+		}
+	}
+
+}

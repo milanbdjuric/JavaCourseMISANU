@@ -1,0 +1,75 @@
+package wdjba;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println ("Unesite dan: ");
+		int d = sc.nextInt();
+		System.out.println ("Unesite mesec: ");
+		int m = sc.nextInt();
+		System.out.println ("Unesite godinu: ");
+		int g = sc.nextInt();
+		
+		int dd = d + 7;
+		
+		switch(m) {
+		case 1, 3, 5, 7, 8, 10, 12: {
+			if (d <= 31 && d > 0) {
+				if (dd > 31) {
+					dd = dd - 31;
+					m++;
+					if (m > 12) {
+						m = 1;
+						g++;
+					}
+				}
+				}
+			else {
+				System.out.println("Pogresan unos.");	
+			}
+			System.out.println("Za sedam dana je " + dd + "." + m + "." + g + ".");
+			break;
+		}
+		case 4, 6, 9, 11: {
+			if (d <= 30 && d > 0) {
+				if (dd > 30) {
+					dd = dd - 30;
+					m++;
+				}
+			}
+			else {
+				System.out.println("Pogresan unos.");
+			}
+			System.out.println("Za sedam dana je " + dd + "." + m + "." + g + ".");
+			break;
+		}
+		case 2: {
+			int feb = 28;
+			if (g%400==0 || (g%4==0 && g%100!=0)) {
+				feb = 29;	
+			}
+			if (d <= feb && d > 0) {
+				dd = dd - feb;
+				m++;
+			}
+			else {
+				System.out.println("Pogresan unos.");
+			}
+			System.out.println("Za sedam dana je " + dd + "." + m + "." + g + ".");
+			break;			
+		}
+		default:
+			System.out.println("Pogresan unos.");
+		}
+		
+		
+
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Broj {
+	
+	int broj;
+	
+	public void unesi() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Unesite trocivren broj: ");
+		int broj = sc.nextInt();
+	}
+	public int getBroj() {
+		return broj;
+	}
+	public int proizvodCifara(int j, int d, int s) {
+		return j*d*s;
+	}
+	public int sumaKumova(int j, int d, int s) {
+		return j*j*j+d*d*d+s*s*s;
+	}
+	public int obrni(int j, int d, int s) {
+		return j*100+d*10+s;
+	}
+
+}

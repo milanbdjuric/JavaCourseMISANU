@@ -1,0 +1,38 @@
+package asdg;
+
+import java.util.Scanner;
+
+public class SDFSDF {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Duzina reda: ");
+		int r = sc.nextInt();
+		System.out.println("Duniza kolone: ");
+		int k = sc.nextInt();
+		int x[][] = new int [r][k];
+		System.out.println("Unesite clanove matre: ");
+		for (int i = 0; i < r; i++) {
+			for (int j = 0; j<k; j++) {
+				System.out.print("x[" + i + "," + j + "] = ");
+				x[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("Izgled matre: ");
+		for (int i = 1; i <= r; i++) {
+			for (int j = 0; j<k; j++) {
+				System.out.print(x[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("Transponovano: ");
+		for (int j = 1; j<=k; j++) {
+			for (int i = 1; i <= r; i++) {
+				System.out.print(x[i][j] + " ");
+			}
+		}
+		
+
+	}
+
+}

@@ -1,0 +1,38 @@
+package oasoaso;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Ime osobe: ");
+		String ime = sc.nextLine();
+		System.out.println("Datum rodjenja: ");
+		String datum = sc.nextLine();
+		System.out.println("Adresa: ");
+		String adresa = sc.nextLine();
+		
+		System.out.println("D za DJAK, Z za ZAPOSLEN");
+		
+		char ch = sc.next().charAt(0);
+		
+		if(ch == 'D') {
+			System.out.println("Naziv skole: ");
+			String naziv = sc.nextLine();
+			System.out.println("Razred: ");
+			String razred = sc.nextLine();
+			
+			Djak x = new Djak(ime, datum, adresa, naziv, razred);
+			System.out.println().opis();
+			
+		}
+		
+		
+
+
+	}
+
+}

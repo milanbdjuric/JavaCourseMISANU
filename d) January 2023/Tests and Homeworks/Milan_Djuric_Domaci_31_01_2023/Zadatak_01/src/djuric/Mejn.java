@@ -1,0 +1,23 @@
+package djuric;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		// pravimo objekte genericke klase kojima dodajemo razlicite tipove podataka i vrednosti
+		
+		GenTip<Integer> ob1 = new GenTip<Integer>(123456);
+		GenTip<Float> ob2 = new GenTip<Float>(1234.345678F);
+		GenTip<Boolean> ob3 = new GenTip<Boolean>(true);
+		GenTip<Double> ob4 = new GenTip<Double>(2345678.456789);
+		GenTip<Byte> ob5 = new GenTip<Byte>((byte) 16);
+		
+		// ispis:
+		
+		ob1.ispis();
+		ob2.ispis();
+		ob3.ispis();
+		ob4.ispis();
+		ob5.ispis();
+	}
+}

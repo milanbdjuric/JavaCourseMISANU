@@ -1,0 +1,145 @@
+CREATE DATABASE sljadoljed;
+
+CREATE TABLE Poslasticare(   
+    poslasticaraID INT PRIMARY KEY AUTO_INCREMENT,
+    naziv VARCHAR(45) NOT NULL,
+    grad VARCHAR(45) NOT NULL,
+    ulica VARCHAR(45) NOT NULL,
+    broj VARCHAR(5) NOT NULL
+)ENGINE = INNODB;
+
+CREATE TABLE Sladoledi(   
+    sladoledID INT PRIMARY KEY AUTO_INCREMENT,
+    naziv VARCHAR(45) NOT NULL
+)ENGINE = INNODB;
+
+CREATE TABLE Deca(   
+    deteID INT PRIMARY KEY AUTO_INCREMENT,
+    ime VARCHAR(45) NOT NULL,
+    prezime VARCHAR(45) NOT NULL,
+    sladoledID INT,
+    FOREIGN KEY (sladoledID) REFERENCES sladoledi(sladoledID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)ENGINE = INNODB;
+
+CREATE TABLE PoslasticareDeca(   
+    poslasticaraDeteID INT PRIMARY KEY AUTO_INCREMENT,
+    deteID INT,
+    FOREIGN KEY (deteID) REFERENCES Deca(deteID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION,
+    poslasticaraID INT,
+    FOREIGN KEY (poslasticaraID) REFERENCES poslasticare(poslasticaraID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)ENGINE = INNODB;
+
+CREATE TABLE PoslasticareSladoledi(   
+    poslasticaraSladoledID INT PRIMARY KEY AUTO_INCREMENT,
+    prodatoSladoleda INT DEFAULT NULL,
+poslasticaraID INT,
+    FOREIGN KEY (poslasticaraID) REFERENCES poslasticare(poslasticaraID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION,
+    sladoledID INT,
+    FOREIGN KEY (sladoledID) REFERENCES sladoledi(sladoledID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)ENGINE = INNODB;
+
+#########################################################
+
+INSERT INTO `poslasticare`(`naziv`, `grad`, `ulica`, `broj`) 
+VALUES ('Vllaznimi', 'Beograd', 'Kosovska', '11B'),
+('Berisha', 'Novi Sad', 'Vojvodjanska', '65'),
+('Pelivan', 'Nis', 'Pirotska', '11');
+
+INSERT INTO `sladoledi`(`naziv`) 
+VALUES ('vanila'),('cokolada'),('jagoda');
+
+INSERT INTO `deca`(`ime`, `prezime`, `sladoledID`) 
+VALUES ('Mika', 'Mikic', 1),
+('Zika', 'Zikic', 2),
+('Pera', 'Peric', 3);
+
+INSERT INTO `poslasticaredeca`(`deteID`, `poslasticaraID`) 
+VALUES (1, 3), (2, 2), (3, 1);
+
+INSERT INTO `poslasticaresladoledi`( `prodatoSladoleda`, `poslasticaraID`, `sladoledID`) 
+VALUES (1, 1, 3), (0, 1, 2), (5, 2, 1), (4, 2, 2), (2, 3, 1), (1, 3, 3);
+
+########################################################
+
+CREATE VIEW naziviSladoleda AS
+SELECT sladoledi.naziv FROM sladoledi;
+
+########################################################
+
+CREATE TABLE najprodavanijiSladoled(
+    najprodavanijiSladoledID INT PRIMARY KEY AUTO_INCREMENT,
+    kolicina INT DEFAULT null
+)ENGINE = INNODB;
+
+DELIMITER //
+CREATE TRIGGER najprod AFTER INSERT ON poslasticaresladoledi FOR EACH ROW 
+BEGIN
+INSERT INTO najprodavanijisladoled(kolicina) (SELECT MAX(poslasticaresladoledi.prodatoSladoleda) FROM poslasticaresladoledi);
+END //
+DELIMITER ;
+
+
+########################################################
+
+DELIMITER //
+CREATE FUNCTION brojSladoleda() RETURNS INT
+DETERMINISTIC 
+BEGIN 
+RETURN (SELECT COUNT(sladoledID) FROM sladoledi);
+END //
+DELIMITER ;
+
+SELECT brojSladoleda();
+
+########################################################
+
+DELIMITER //
+CREATE PROCEDURE naziviPoslasticara()
+BEGIN
+SELECT poslasticare.naziv FROM poslasticare
+INNER JOIN poslasticaredeca
+ON poslasticare.poslasticaraID = poslasticaredeca.poslasticaraID
+WHERE poslasticaredeca.deteID IS NOT NULL;
+END //
+DELIMITER ;
+
+CALL naziviPoslasticara();
+
+#########################################################
+
+SELECT deca.ime, deca.prezime FROM deca
+INNER JOIN sladoledi
+ON deca.sladoledID = sladoledi.sladoledID
+INNER JOIN poslasticaresladoledi
+ON poslasticaresladoledi.sladoledID = sladoledi.sladoledID
+INNER JOIN poslasticaredeca
+ON poslasticaredeca.deteID = deca.deteID
+INNER JOIN poslasticare
+ON poslasticare.poslasticaraID = poslasticaredeca.poslasticaraID
+WHERE deca.sladoledID IN(poslasticaresladoledi.sladoledID)
+AND poslasticaresladoledi.poslasticaraID IN(poslasticare.poslasticaraID)
+AND poslasticare.poslasticaraID IN(poslasticaredeca.poslasticaraID)
+AND poslasticaredeca.deteID IN(deca.deteID);
+
+
+
+
+
+
+
+
+
+
+
+
+

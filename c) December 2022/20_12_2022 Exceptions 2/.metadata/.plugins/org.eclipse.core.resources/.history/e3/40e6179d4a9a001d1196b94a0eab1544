@@ -1,0 +1,18 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Broj {
+	
+	int broj;
+	
+	public void unesi() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Unesite trocivren broj: ");
+		int broj = sc.nextInt();
+	}
+	public int getBroj() {
+		return broj;
+	}
+
+}

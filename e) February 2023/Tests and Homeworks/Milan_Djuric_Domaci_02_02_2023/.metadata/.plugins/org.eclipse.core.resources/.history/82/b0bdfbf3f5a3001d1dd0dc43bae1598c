@@ -1,0 +1,19 @@
+package djuric;
+
+public class Djak extends Osoba{
+	
+	private String nazivSkole, razred;
+
+	public void setNazivSkole(String nazivSkole) {
+		this.nazivSkole = nazivSkole;
+	}
+
+	public void setRazred(String razred) {
+		this.razred = razred;
+	}
+	
+	public void ispis() {
+		System.out.println("Ime: " + getIme() + "\nDatum rodjenja: " + getDatumRodjenja() + "\nAdresa: " + getAdresa() +
+				"\nNaziv skole: " + nazivSkole + "\nRazred: " + razred);
+	}
+}

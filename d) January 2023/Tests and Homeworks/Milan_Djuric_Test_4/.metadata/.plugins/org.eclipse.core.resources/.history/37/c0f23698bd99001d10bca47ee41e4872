@@ -1,0 +1,42 @@
+package gjurriq;
+
+import java.io.*;
+
+public class Auto {
+	
+	String nazif, proizvajalec;
+	int godisce;
+	double potroslja;
+	
+	public void unetiNazifAuta() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("KOIE NAZIF AUTA? ");
+		nazif = br.readLine();
+	}
+	public void unetiProizvajalcaAuta() throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("KOGAE NA PRAWIO? ");
+		proizvajalec = br.readLine();
+	}
+	public void unetiGodisceAuta() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("KAGAE NA PRAWIO?");
+		try {
+			godisce = Integer.parseInt(br.readLine());
+		}catch(Exception x) {
+			System.out.println("NEWALJA AJOPET: ");
+			unetiGodisceAuta();
+		}
+	}
+	public void unetiPotrosljuAuta(double potroslja) {
+			this.potroslja = potroslja;
+	}
+	public String toString() {
+		return "Auto [nazif=" + nazif + ", proizvajalec=" + proizvajalec + ", godisce=" + godisce + ", potroslja="
+				+ potroslja + "]";
+	}
+	
+	
+	
+
+}

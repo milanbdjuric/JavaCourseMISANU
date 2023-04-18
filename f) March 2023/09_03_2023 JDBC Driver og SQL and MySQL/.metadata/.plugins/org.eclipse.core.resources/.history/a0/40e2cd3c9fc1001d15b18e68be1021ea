@@ -1,0 +1,7 @@
+package oasoaso;
+
+public interface ProveraDeljivosti {
+	
+	public abstract boolean deljiv(int a, int b);
+
+}

@@ -1,0 +1,30 @@
+package djuric;
+
+public class Osoba {
+	
+	private String ime, datumRodjenja, adresa;
+
+	public String getIme() {
+		return ime;
+	}
+
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+
+	public String getDatumRodjenja() {
+		return datumRodjenja;
+	}
+
+	public void setDatumRodjenja(String datumRodjenja) {
+		this.datumRodjenja = datumRodjenja;
+	}
+
+	public String getAdresa() {
+		return adresa;
+	}
+
+	public void setAdresa(String adresa) {
+		this.adresa = adresa;
+	}
+}

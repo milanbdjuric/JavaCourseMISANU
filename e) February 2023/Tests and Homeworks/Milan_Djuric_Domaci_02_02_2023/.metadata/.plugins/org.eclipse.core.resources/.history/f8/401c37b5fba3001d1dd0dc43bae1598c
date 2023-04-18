@@ -1,0 +1,12 @@
+package djuric;
+
+public class Osoba {
+	
+	String ime, datumRodjenja, adresa;
+	
+	Osoba(String i, String d, String a){
+		ime = i;
+		datumRodjenja = d;
+		adresa = a;
+	}
+}

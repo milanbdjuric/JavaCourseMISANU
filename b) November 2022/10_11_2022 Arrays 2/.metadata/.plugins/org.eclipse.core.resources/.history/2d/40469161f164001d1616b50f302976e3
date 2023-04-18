@@ -1,0 +1,49 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesi broj kuca u ulici: ");
+		int n = sc.nextInt();
+		
+		int broj[] = new int[100];
+		int par[] = new int[100];
+		int nepar[] = new int[100];
+		int PRbrojac = 1;
+		int NPRbrojac = 1;
+		
+		System.out.println("Unesi brojeve kuca: ");
+		for (int i=1; i<=n; i++) {
+			broj[i] = sc.nextInt();
+			
+			if (broj[i]%2==0) {
+				par[PRbrojac] = broj[i];
+			}
+			else {
+				nepar[NPRbrojac] = broj[i];
+			}
+			PRbrojac++;
+			NPRbrojac++;
+		}
+		for (int i=1; i<=n; i++) {
+			System.out.print(broj[i] + " ");
+		}
+		for (int i=1; i<=n; i++) {
+			System.out.print(par[i] + " ");
+		}
+		for (int i=1; i<=n; i++) {
+			System.out.print(nepar[i] + " ");
+		}
+
+	}
+}
+
+
+

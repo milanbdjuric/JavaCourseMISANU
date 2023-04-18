@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner unos = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost ugla u radijanima: ");
+		
+		double xyz = unos.nextDouble();
+		
+		System.out.println("Sinus je " + Math.sin(xyz) + " a kosinus bi bio " + Math.cos(xyz));
+		
+
+
+	}
+
+}

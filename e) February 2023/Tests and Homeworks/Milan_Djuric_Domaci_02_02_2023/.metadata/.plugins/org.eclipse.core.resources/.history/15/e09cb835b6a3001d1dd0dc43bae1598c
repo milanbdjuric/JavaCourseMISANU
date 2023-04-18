@@ -1,0 +1,42 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite binarni broj: ");
+		int b = sc.nextInt();
+		
+		int x = b;
+		
+		boolean bin = true;
+		
+		while(x > 0) {
+			if(x % 10 == 0 || x % 10 == 1) {
+			}
+			else
+				bin = false;
+			x/=10;
+		}
+		
+		if(bin) {
+			int k = 0, s = 0;
+			while(b>0) {
+				int c = b%10;
+				s+=Math.pow(2, k)*c;
+				k++;
+				b/=10;
+			}	
+			System.out.println("To je decimalni broj " + s);
+		}
+		else {
+			System.out.println("Broj nije binaran. Pokusajte ponovo!");
+			main(args);
+		}
+		sc.close();
+	}
+}

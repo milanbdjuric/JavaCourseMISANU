@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\DJURIC\Desktop\09_03_2023\.metadata\.plugins\org.eclipse.jdt.core
+163020426.index
+512011208.index
+1865797976.index
+2495632306.index
+412411231.index

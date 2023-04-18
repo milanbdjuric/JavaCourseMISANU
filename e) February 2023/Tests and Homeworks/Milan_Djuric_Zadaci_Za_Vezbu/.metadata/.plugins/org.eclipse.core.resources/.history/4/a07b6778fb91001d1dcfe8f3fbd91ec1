@@ -1,0 +1,39 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+	
+    static double F(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return F(n-1) * G(n-1) + 3 * (n-1);
+        }
+    }
+
+    static double G(int n) {
+        if (n == 0) {
+            return 0;
+        } else {
+            return n*n*F(n-1) + 2*G(n-1);
+        }
+    }
+
+	    public static void main(String[] args) {
+	        
+	    	Scanner sc = new Scanner(System.in);
+	        
+	    	System.out.print("Unesite vrednost za n: ");
+	    	int n = sc.nextInt();
+
+	        double f = F(n);
+	        System.out.println("F(" + n + ") = " + f);
+	    }
+
+
+	}
+
+	
+	
+

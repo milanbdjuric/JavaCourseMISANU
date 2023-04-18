@@ -1,0 +1,80 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite dan, mesec i godinu: ");
+		
+		int dan = sc.nextInt();
+		int mesec = sc.nextInt();
+		int godina = sc.nextInt();
+		
+		int sedmidan = dan + 7;
+		
+		int feb = 28;
+		
+		if (godina % 4 == 0 && godina % 100 != 0 && godina % 400 == 0)
+			feb = 29;
+		
+		switch (mesec) {
+		
+		case 1, 3, 5, 7, 8, 10, 12: {	
+			
+			if (sedmidan > 31) {
+				dan = sedmidan - 31;
+				mesec++;
+			}		
+			else
+				dan = sedmidan;
+			if (mesec > 12) {
+				mesec = mesec - 12;
+				godina++; }
+			break;
+			}
+		
+		case 4, 6, 9, 11: {	
+			
+			if (sedmidan > 30) {
+				dan = sedmidan - 30;
+				mesec++;
+			}		
+			else
+				dan = sedmidan;
+			break;
+			}
+			
+		case 2: {	
+			
+			if (sedmidan > feb) {
+				dan = sedmidan - feb;
+				mesec++;
+			}		
+			else
+				dan = sedmidan;
+			
+			break;
+			}
+			
+
+		default:
+			System.out.println("Nije dobar unos");
+		}
+		
+
+
+
+		
+		System.out.print(dan + "." + mesec + "." + godina);
+
+			
+		}
+		
+
+	}
+
+

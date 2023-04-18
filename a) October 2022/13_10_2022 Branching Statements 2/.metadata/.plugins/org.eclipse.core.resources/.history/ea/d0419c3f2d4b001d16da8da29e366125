@@ -1,0 +1,29 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite prvi redni broja dana u godini: ");
+		int k1 = sc.nextInt();
+		System.out.println("Unesite drugi redni broja dana u godini: ");
+		int k2 = sc.nextInt();
+		System.out.println("Unesite treci redni broja dana u godini: ");
+		int k3 = sc.nextInt();
+		
+		if ( (k1+k2+k3) % 7 == 0) {
+			System.out.println("Isti su dan u nedelji");
+		}
+		else {
+			System.out.println("Nisu isti dan u nedelji");
+		}
+		
+		
+
+	}
+
+}

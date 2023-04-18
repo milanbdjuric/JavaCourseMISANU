@@ -1,0 +1,28 @@
+package milan.djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner xyz = new Scanner(System.in);
+		
+		System.out.print("Unesite godinu: ");
+		
+		int godina = xyz.nextInt();
+		
+		if (godina % 4 == 0 && godina % 100 !=0 || godina % 400 == 0)
+		{
+			System.out.print("Godina je prestupna");
+		}
+		else
+		{
+			System.out.print("Godina nije prestupna");
+		}
+		xyz.close();
+		
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package wdjbhzs;
+
+public class Main {
+
+	public static int fadrratBroja(int x) {
+		return x*x;
+	}
+	
+	public static void main(String[] args) {
+		int x = 10;
+		System.out.println(fadrratBroja(x));
+
+	}
+
+}

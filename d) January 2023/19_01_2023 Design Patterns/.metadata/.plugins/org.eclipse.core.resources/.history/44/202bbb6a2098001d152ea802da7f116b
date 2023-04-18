@@ -1,0 +1,25 @@
+package djuric;
+
+public class Mejn {
+
+	
+	
+	public static void main(String[] args) {
+		
+		DivljaCurka patka = new DivljaCurka();
+		
+		Curka curka = new DivljaCurka();
+		
+// Umotavamo curku u CurkaAdapter, zahvaljuci kome ce izgledati kao patka
+		
+		Patka curkaAdapter = new CurkaAdapter(curka);
+		
+		System.out.println("Curka: ");
+		curka.curlice();
+		curka.leti();
+		
+		
+
+	}
+
+}

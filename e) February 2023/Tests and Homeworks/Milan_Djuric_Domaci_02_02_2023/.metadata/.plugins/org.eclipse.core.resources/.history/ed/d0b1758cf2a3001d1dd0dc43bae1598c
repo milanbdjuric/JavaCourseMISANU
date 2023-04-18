@@ -1,0 +1,41 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Upisite 'Z' da unesete podatke o zaposlenom ili 'D' da unesete podatke o djaku: ");
+		
+		char a = sc.next().charAt(0);
+		
+		if(a == 'Z') {
+			Zaposlen z = new Zaposlen();
+			System.out.print("Ime: ");
+			
+			z.setIme(sc.nextLine());
+			System.out.print("Datum rodjenja: ");
+			z.setDatumRodjenja(sc.nextLine());
+			
+			System.out.println("Adresa: ");
+			z.setAdresa(sc.nextLine());
+			
+			System.out.println("Naziv firme: ");
+			z.setNazivFirme(sc.nextLine());
+			
+			System.out.println("Naziv odeljenja: ");
+			z.setNazivOdeljenja(sc.nextLine());
+			
+			System.out.println("Uneseni podaci o uceniku su: ");
+			z.ispis();
+		}
+		
+
+		
+
+	}
+
+}

@@ -1,0 +1,49 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		double x[] = new double[100];
+		double f[] = new double[100];
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		
+		for (int k = 0; k<=n; k++) {
+			System.out.print("x[" + k + "] = ");
+			x[k] = sc.nextDouble();
+			System.out.print("f[" + k + "] = ");
+			f[k] = sc.nextDouble();
+		}
+		double sxi = 0, sfi = 0, sxifi = 0, sxi2 = 0;
+		
+		for (int i = 1; i<=n; i++) {
+			sxi += Math.log(x[i]);
+			sfi += Math.log(f[i]);
+			sxifi += Math.log(x[i])*Math.log(f[i]);
+			sxi2 += Math.log(Math.pow(x[i], 2));
+		}
+		double b1 = (sxi*sfi - n*sxifi) / (Math.pow(sxi, 2) - n*sxi2);
+		
+		double b0 = (sfi - b1*sxi2) / n;
+		
+		System.out.println("X\tY(X)");
+		
+		for (int k = 0; k<=n; k++) {
+			double y = Math.log(b0) * Math.pow(x[k], b1);
+			System.out.println(x[k] + "\t" + y);
+		
+		}
+		
+		
+		
+		
+
+	}
+
+}

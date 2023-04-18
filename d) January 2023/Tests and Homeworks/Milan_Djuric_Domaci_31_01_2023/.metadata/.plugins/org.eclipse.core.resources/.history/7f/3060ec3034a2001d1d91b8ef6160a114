@@ -1,0 +1,23 @@
+package djuric;
+
+import java.util.*;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		List<String> a = new ArrayList<String>();
+		
+		String niz[] = {"Mika", "Zika", "Pera", "Laza", "Dragutin", "Ana", "Una", "Ena", "Ina", "Jelena"};
+		
+		for(String x : niz) {
+			a.add(x);
+		}
+		
+		System.out.println(a);
+		
+
+
+	}
+
+}

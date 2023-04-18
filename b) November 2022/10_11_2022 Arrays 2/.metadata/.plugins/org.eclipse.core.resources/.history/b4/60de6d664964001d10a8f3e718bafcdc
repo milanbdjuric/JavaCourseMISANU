@@ -1,0 +1,59 @@
+package djuric;
+
+import java.text.DecimalFormat;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost boda: ");
+		double bod = sc.nextDouble();
+		
+		System.out.println("Unesite broj radnika: ");
+		int n = sc.nextInt();
+		
+		System.out.println("Unesite podatke o radnicima: ime, broj bodova, ratu kredita i clanarinu: ");
+		
+		double nbod[] = new double[100];
+		double kredit[] = new double[100];
+		double clan[] = new double[100];
+		double plata[] = new double[100];
+		String ime[] = new String[100];
+		double ukupno = 0;
+
+		
+		for (int i=1; i<=n; i++) {
+			System.out.println("Podaci za " + i + ". radnika: ");
+			System.out.print("Ime: ");
+			ime[i] = sc.next();
+			System.out.print("Broj bodova: ");
+			nbod[i] = sc.nextDouble();
+			System.out.print("Rata kredita: ");
+			kredit[i] = sc.nextDouble();
+			System.out.print("Clanarina: ");
+			clan[i] = sc.nextDouble();
+			plata[i] = (nbod[i]*bod) - kredit[i] - clan[i];
+			ukupno+=plata[i];
+		}
+		
+		System.out.println("IME\tBODOVA\tKREDIT\tCLANARINA\tPLATA");
+		
+		for (int i=1; i<=n; i++) {
+			System.out.println(ime[i] + "\t" + nbod[i] + "\t" + kredit[i] + "\t" + clan[i] + "\t" + plata[i]);
+		}
+		System.out.println("================================================\tUKUPNO ZA ISPLATU: " + ukupno);
+		sc.close();
+		
+		
+
+	}
+}
+
+
+

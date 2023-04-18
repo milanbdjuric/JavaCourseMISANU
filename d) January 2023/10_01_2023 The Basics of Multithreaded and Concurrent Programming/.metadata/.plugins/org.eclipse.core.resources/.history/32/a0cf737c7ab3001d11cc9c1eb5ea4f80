@@ -1,0 +1,15 @@
+package djuric;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		
+		System.out.println("THREAD: " + Thread.currentThread());
+		System.out.println("ID: " + Thread.currentThread().getId());
+		System.out.println("IME: " + Thread.currentThread().getName());
+		System.out.println("PRIORITET: " + Thread.currentThread().getPriority());
+
+	}
+
+}

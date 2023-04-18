@@ -1,0 +1,24 @@
+package djuric;
+
+/* Nabrajanje (enumeracija) je lista imenovanih vrednosti
+ * koje definisu nov tip podataka i njegove dozvoljene vrednosti.
+ * To znaci da nabrajanje moze da sadrzi samo neku od vrednosti koje su navedene na listi.
+ * Druge vrednosti nisu dozvoljene.
+ * 
+ */
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Boje b;  // uvodi se kao int a, kao prosti tip, ne kao objekat
+		
+		b = Boje.Crvena;  // kao a = 5 (moze samo iz enuma)
+		
+		System.out.println("Boja: " + b);
+		
+
+
+	}
+
+}

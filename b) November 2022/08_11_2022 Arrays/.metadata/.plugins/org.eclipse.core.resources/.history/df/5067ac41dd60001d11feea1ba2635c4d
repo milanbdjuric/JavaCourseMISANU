@@ -1,0 +1,41 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class aswws {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj clanova niza: ");
+		int n = sc.nextInt();
+		
+		int x[] = new int[n];
+		
+		System.out.println("Unesite clanove niza: ");
+		
+		for (int i = 0; i < x.length; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextInt();
+		}
+		
+		for (int i = 0; i < x.length; i++) {
+			if (x[i]!=0) {
+				if (x[i] % 2 == 0) {
+					double nj = (double) 1/x[i];
+					System.out.println(x[i] + " je paran broj. Reciprocna vrednost mu je: " + nj);
+				}
+				else {
+					System.out.println(x[i] + " je neparan broj. Kvadrat mu je: " + Math.pow(x[i], 2));
+				}
+			}
+			else {
+				System.out.println("Uneli ste nulu, nula ne moze biti clan niza.");
+			}
+		}
+		
+
+		}
+	}
+		

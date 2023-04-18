@@ -1,0 +1,43 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite slovo: ");
+		
+		char slovo = sc.next().charAt(0);
+		
+		switch(slovo)
+		{
+		case 'a': {
+			System.out.println("Samoglasnik.");
+			break;
+		}
+		case 'e': {
+			System.out.println("Samoglasnik.");
+			break;
+		}
+		case 'i': {
+			System.out.println("Samoglasnik.");
+			break;
+		}
+		case 'o': {
+			System.out.println("Samoglasnik.");
+			break;
+		}
+		case 'u': {
+			System.out.println("Samoglasnik.");
+			break;
+		}
+		default:
+			System.out.println("Suglasnik");
+		}
+		
+	}
+
+}

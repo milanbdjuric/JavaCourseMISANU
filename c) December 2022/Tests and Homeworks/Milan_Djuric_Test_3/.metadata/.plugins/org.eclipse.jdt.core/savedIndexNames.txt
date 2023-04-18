@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\DJURIC\Desktop\Milan_Djuric_Test_3\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+391446802.index
+26690034.index

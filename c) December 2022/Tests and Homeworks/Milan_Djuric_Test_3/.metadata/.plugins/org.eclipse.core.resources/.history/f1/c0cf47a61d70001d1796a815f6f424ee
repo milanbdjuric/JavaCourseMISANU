@@ -1,0 +1,17 @@
+package milan_djuric;
+
+public class Zadatak_1 {
+
+	public static void main(String[] args) {
+		
+		int x[] = {108, 236, 100, 248};
+		
+		int suma = 0;
+		
+		for (int i = 0; i<x.length; i++) {
+			if (x[i]%10==8)
+				suma+=x[i];
+		}
+		System.out.println("Suma clanova niza cija je cifra jedinica 8 je " + suma);
+	}
+}

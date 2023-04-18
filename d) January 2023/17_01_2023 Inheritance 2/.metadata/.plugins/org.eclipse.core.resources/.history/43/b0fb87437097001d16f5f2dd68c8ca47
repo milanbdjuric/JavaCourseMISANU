@@ -1,0 +1,13 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		PrehrambeniProizvod x = new PrehrambeniProizvod("hleb", "Moja Pekara", 40.0);
+		
+		x.ispisi();
+
+	}
+
+}

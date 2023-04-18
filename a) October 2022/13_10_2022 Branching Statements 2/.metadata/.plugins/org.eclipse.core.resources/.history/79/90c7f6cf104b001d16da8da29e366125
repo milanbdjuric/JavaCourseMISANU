@@ -1,0 +1,55 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// 1. deo: UNOS PODATAKA
+		// 2. deo: OBRADA PODATAKA
+		// 3. deo: STAMPANJE
+
+		Scanner sc = new Scanner(System.in);
+		int ocena;
+		System.out.println("Unesite ocenu: ");
+		ocena = sc.nextInt();
+
+		switch (ocena) {
+		case 5: {
+			System.out.println("Odlican. ");
+			break;
+		}
+		case 4: {
+			System.out.println("Vrlo dobar. ");
+			break;
+		}
+		case 3: {
+			System.out.println("Dobar. ");
+			break;
+		}
+		case 2: {
+			System.out.println("Dovoljan. ");
+			break;
+		}
+		case 1: {
+			System.out.println("Nedovoljan. ");
+			break;
+		}
+		default:
+			System.out.println("Uneta ocena ne postoji.");
+		}
+
+		// switch(uslov)
+		// {
+		// case 1: {
+		// break;
+		// }
+		// case 2:
+		//
+		// obrada
+		// default: obrada ostalih slucajeva
+
+	}
+
+}

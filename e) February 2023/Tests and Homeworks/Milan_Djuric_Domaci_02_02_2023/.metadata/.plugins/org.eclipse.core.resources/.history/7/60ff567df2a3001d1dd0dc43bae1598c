@@ -1,0 +1,15 @@
+package djuric;
+
+public class Zaposlen extends Osoba{
+
+	String firma, odeljenje;
+	
+	Zaposlen(String i, String d, String a, String f, String o) {
+		super(i, d, a);
+		firma = f;
+		odeljenje = o;
+	}
+	
+	
+
+}

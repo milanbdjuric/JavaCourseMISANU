@@ -1,0 +1,59 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj predmeta: ");
+		int broj = sc.nextInt();
+		
+		Predmet niz[] = new Predmet[broj];
+		
+		for(int i=1; i<=broj; i++) {
+			System.out.print(i + ". predmet. Unesite SFERA za sferu i KVADAR za kvadar: ");
+			String x = sc.nextLine();
+			switch(x) {
+			case "SFERA":
+				System.out.print("Unesite poluprecnik: ");
+				double pp = sc.nextDouble();
+				System.out.print("Unesite specificnu tezinu: ");
+				double st = sc.nextDouble();
+				Sfera s = new Sfera(st, 'S', pp);
+				niz[i] = s;
+				break;
+			case "KVADAR":
+				System.out.print("Unesite stranicu a: ");
+				double a = sc.nextDouble();
+				System.out.print("Unesite stranicu b: ");
+				double b = sc.nextDouble();
+				System.out.print("Unesite stranicu c: ");
+				double c = sc.nextDouble();
+				System.out.print("Unesite specificnu tezinu: ");
+				st = sc.nextDouble();
+				Kvadar k = new Kvadar(st, 'K', a, b, c);
+				niz[i] = k;
+				break;	
+			}	
+		}
+		
+		double ukupnaTezina = 0;
+		
+		for(Predmet h : niz) {
+			ukupnaTezina += h.tezina();
+		}
+		
+		System.out.println("Predmeti cija je tezina veca od proseka su: ");
+		
+		for(Predmet h : niz) {
+			if(ukupnaTezina/broj > h.tezina())
+				System.out.println(h.opis());
+		}
+		
+
+	}
+
+}

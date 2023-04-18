@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="CommitDialog.authorValues">
+		<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+		<item value="sremusch &lt;sremusch@gmail.com&gt; Lesson commited to Git"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/sremusch/java-course-classes-misanu.git"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\DJURIC\Desktop\Repo\.git">
+			<item value="false"/>
+			<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+			<item value="Zadaci iz lekcije &quot;Razgranata struktura&quot;, Java kurs MISANU&#x0D;&#x0A;"/>
+			<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+		<list key="C:\Users\DJURIC\Desktop\Repo\ShestiOktobar\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\DJURIC\git\java-if-else\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\DJURIC\git\java-course-classes-misanu\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\DJURIC\git\javaCoursesMISANU\.git">
+			<item value="false"/>
+			<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+			<item value="First commit."/>
+			<item value="sremusch &lt;sremusch@gmail.com&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

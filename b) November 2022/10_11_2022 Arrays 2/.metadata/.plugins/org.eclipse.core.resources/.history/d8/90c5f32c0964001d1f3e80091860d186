@@ -1,0 +1,49 @@
+package djuric;
+
+import java.text.DecimalFormat;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost za n: ");
+		double n = sc.nextDouble();
+		
+		double x[] = new double[100];
+		
+		System.out.println("Unesite clanove niza x:");
+		
+		for (int i=1; i<=n; i++) {
+			System.out.println("X[" + i + "] = ");
+			x[i] = sc.nextDouble();
+		}
+		
+		double xsr, V, suma1 = 0, suma2 = 0;
+		
+		if (n <= 50) {
+			for (int i=1; i<=n; i++) {
+				suma1 += x[i];
+			}
+			xsr = suma1 / n;
+			
+			for (int i = 1; i<=n; i++) {
+				suma2 += Math.pow(x[i] - xsr, 2);
+			}
+			V = suma2/(n-1);
+			System.out.println("V = " + V);	
+		}
+		else
+			System.out.println("Greska, ora da bude n<=50");
+		sc.close();
+
+	}
+}
+
+
+

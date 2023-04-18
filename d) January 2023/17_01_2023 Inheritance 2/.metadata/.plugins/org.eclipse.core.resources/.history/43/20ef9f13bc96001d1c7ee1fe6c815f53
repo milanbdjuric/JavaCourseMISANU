@@ -1,0 +1,32 @@
+package djuric;
+
+public class Uredjaj {
+	
+	String marka;
+	boolean ukljucen;
+	
+	Uredjaj(String marka, boolean ukljucen){
+		if (marka.isBlank()||marka.isEmpty())
+			System.out.println("Greska!");
+		this.marka = marka;
+		this.ukljucen = ukljucen;
+	}
+	public String getMarka() {
+		return marka;
+	}
+	public void setMarka(String marka) {
+		if (marka!=null)
+			this.marka = marka;
+	}
+	public boolean ukljuci() {
+		return true;
+	}
+	public boolean iskljuci() {
+		return false;
+	}
+	public void ispisi() {
+		System.out.println("Marka uredjaja je " + this.marka + "\nUkljucen: " + this.ukljucen);
+	}
+
+
+}

@@ -1,0 +1,20 @@
+package zdxfhg;
+
+public class Lokomotiva extends Vozilo{
+
+
+
+	Lokomotiva(double tezina, double vucnaSila) {
+		super(tezina, vucnaSila);
+
+	}
+
+	public double ukupnaTezina() {
+		return 0;
+	}
+
+	public String opis() {
+		return null;
+	}
+
+}

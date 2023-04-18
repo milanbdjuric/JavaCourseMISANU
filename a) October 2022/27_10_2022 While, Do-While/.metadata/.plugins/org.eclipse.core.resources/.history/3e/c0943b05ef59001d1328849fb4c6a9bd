@@ -1,0 +1,31 @@
+package wdjba;
+
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		double y, a, b;
+		int n;
+		int i = 1;
+		
+		System.out.println("Unesite vrednost za n: ");
+		n = Integer.parseInt(br.readLine());
+		
+		while (i<=n) {
+			System.out.println("Unesite vrednost za a: ");
+			a = Double.parseDouble(br.readLine());
+			System.out.println("Unesite vrednost za b: ");
+			b = Double.parseDouble(br.readLine());
+			if (a >= 0)
+				y = (1-Math.min(a, b))/(1+Math.max(a, b));
+			else
+				y = Math.min(a, b)/(Math.min(a*a, b*b)+3);
+			System.out.println("Za " + a + " i " + b + ", y = " + y);
+			i++;
+		}
+	}
+}

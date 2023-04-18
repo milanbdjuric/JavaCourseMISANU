@@ -1,0 +1,75 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Unesite mesec rodjenja: ");
+		
+		String mesec = sc.nextLine();
+		
+		System.out.print("Unesite dan rodjenja: ");
+		
+		int dan = sc.nextInt();
+		
+		/*
+		 * Ovan – od 21. marta do 20. aprila;
+		 * Bik – od 21. aprila do 21. maja;
+		 * Blizanci – od 22. maja do 21. juna;
+		 * Rak – od 22. juna do 22. jula;
+		 * Lav – od 23. jula do 22. avgusta;
+		 * Devica – od 23. avgusta do 22. septembra;
+		 * Vaga – od 23. septembra do 23.oktobra;
+		 * Škorpija – od 24. oktobra do 22. novembra;
+		 * Strelac – od 23. novembra do 21. decembra;
+		 * Jarac – od 22. decembra do 20. januara;
+		 * Vodolija – od 21. januara do 19. februara;
+		 * Ribe – od 20. februara do 20. marta;
+		 */
+		
+		if (mesec == "mart") {
+			System.out.println("Ovan");
+		}
+		else if ((mesec == "april" && dan >= 21) && (mesec == "maj" && dan <= 21)) {
+			System.out.println("Bik");	
+		}
+		else if ((mesec == "maj" && dan >= 22) && (mesec == "jun" && dan <= 21)) {
+			System.out.println("Blizanci");	
+		}
+		else if ((mesec == "jun" && dan >= 22) && (mesec == "jul" && dan <= 22)) {
+			System.out.println("Rak");	
+		}
+		else if ((mesec == "jul" && dan >= 23) && (mesec == "avgust" && dan <= 22)) {
+			System.out.println("Lav");	
+		}
+		else if ((mesec == "avgust" && dan >= 23) && (mesec == "septembar" && dan <= 22)) {
+			System.out.println("Devica");	
+		}
+		else if ((mesec == "septembar" && dan >= 23) && (mesec == "oktobar" && dan <= 23)) {
+			System.out.println("Vaga");	
+		}
+		else if ((mesec == "oktobar" && dan >= 24) && (mesec == "novembar" && dan <= 22)) {
+			System.out.println("Skorpija");	
+		}
+		else if ((mesec == "novembar" && dan >= 23) || (mesec == "decembar" && dan <= 21)) {
+			System.out.println("Strelac");	
+		}
+		else if ((mesec == "decembar" && dan >= 22) || (mesec == "januar" && dan <= 20)) {
+			System.out.println("Jarac");	
+		}
+		else if ((mesec == "januar" && dan >= 21) || (mesec == "februar" && dan <= 19)) {
+			System.out.println("Vodolija");	
+		}
+		else if ((mesec == "februar" && dan >= 20) || (mesec == "mart" && dan <= 20)) {
+			System.out.println("Ribe");	
+		}
+
+		
+
+	}
+
+}

@@ -1,0 +1,72 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+	static void matrica (int niz[][], int n) {
+		for (int i=1; i<=n; i++) {
+			for (int j=1; j<=n; j++) {
+				System.out.print(niz[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	static void zamena (int niz[][], int n) {
+		for (int i=1; i<=n; i++) {
+			int tmp = niz[i][i];
+			niz[i][i] = niz[i][n-i+1];
+			niz[i][n-i+1] = tmp;
+			System.out.print(niz[i][n-i+1]);
+		}
+		System.out.println();
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesi duzinu reda/kolone dhe matre fadrrati: ");
+		int n = sc.nextInt();
+		
+		System.out.println("Unesi clanove dhe qifsha matre fadrrati:");
+		
+		int niz[][] = new int [100][100];
+		
+		for (int i=1; i<=n; i++) {
+			for (int j=1; j<=n; j++) {
+				System.out.print("niz[" + i + "," + j + "] = ");
+				niz[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("Vaka qifsha matre fadrrati:");
+		matrica(niz, n);
+		System.out.println("Zamene qifsha matre fadrrati:");
+		zamena(niz, n);
+		
+
+	}
+	
+
+
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

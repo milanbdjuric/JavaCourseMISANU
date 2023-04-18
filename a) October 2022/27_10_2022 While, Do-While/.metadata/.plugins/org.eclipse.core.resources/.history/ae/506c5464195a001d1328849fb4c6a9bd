@@ -1,0 +1,29 @@
+package wdjba;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		DecimalFormat df = new DecimalFormat("#,##00.00");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj a");
+		int a = sc.nextInt();
+		System.out.println("Unesite broj b");
+		int b = sc.nextInt();
+		
+		int i = a;
+		
+		while (a <= b) {
+			System.out.println(i);
+			a *= 4;
+		}
+		
+
+
+
+	}
+}

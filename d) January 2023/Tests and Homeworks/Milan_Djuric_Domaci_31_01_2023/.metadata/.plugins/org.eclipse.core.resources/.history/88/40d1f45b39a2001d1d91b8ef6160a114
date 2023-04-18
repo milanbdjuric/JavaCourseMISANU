@@ -1,0 +1,24 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite dekadni broj: ");
+		int n = sc.nextInt();
+		
+		while(n!=01) {
+			if(n%2==0)
+				System.out.print("0");
+			else
+				System.out.print("1");
+			n--;
+		}
+
+	}
+
+}

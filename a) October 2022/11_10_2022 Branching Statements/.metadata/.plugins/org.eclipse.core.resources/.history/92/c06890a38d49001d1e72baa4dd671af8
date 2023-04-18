@@ -1,0 +1,28 @@
+package milan.djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner xyz = new Scanner(System.in);
+		
+		System.out.println("Unesite znak: ");
+		
+		char znak = xyz.next().charAt(0);
+		
+		if (znak >= 'A' && znak <= 'Z') {
+			System.out.println("Znak je veliko slovo");
+		}
+		if else {
+			(znak >= 'a' && znak <= 'z')
+				System.out.println("Znak je veliko slovo");
+		}
+		else {
+			System.out.println("Znak je specijalni znak");
+		}
+
+	}
+
+}

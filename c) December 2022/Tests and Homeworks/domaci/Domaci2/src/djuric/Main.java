@@ -1,0 +1,48 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Unesite broj redova: ");
+		int r = sc.nextInt();
+		System.out.print("Unesite broj kolona: ");
+		int k = sc.nextInt();
+		
+		int a[][] = new int[r][k];
+		
+		System.out.println("\nUnesite elemente matrice: ");
+		
+		for (int i=0; i<r; i++) {
+			for (int j=0; j<k; j++) {
+				System.out.print("a[" + i + "," + j + "] = ");
+				a[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("\nMatrica izgleda ovako: ");
+		for (int i=0; i<r; i++) {
+			for (int j=0; j<k; j++) {
+				System.out.print(a[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("\nElementi sa neparnim indeksima redova su: ");
+		for (int i=0; i<r; i++) {
+			for (int j=0; j<k; j++) {
+				if (i%2!=0)
+				System.out.print(a[i][j] + " ");
+			}
+		}
+		sc.close();
+		
+		
+		
+
+	}
+
+}

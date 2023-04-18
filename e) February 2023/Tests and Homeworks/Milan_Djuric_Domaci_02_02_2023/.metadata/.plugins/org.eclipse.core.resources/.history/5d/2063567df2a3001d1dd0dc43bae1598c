@@ -1,0 +1,19 @@
+package djuric;
+
+public class Djak extends Osoba{
+	
+	String nazivSkole, razred;
+
+	Djak(String i, String d, String a, String n, String r) {
+		super(i, d, a);
+		nazivSkole = n;
+		razred = r;
+	}
+	public String toString() {
+		return "Djak [nazivSkole=" + nazivSkole + ", razred=" + razred + ", ime=" + ime + ", datumRodjenja="
+				+ datumRodjenja + ", adresa=" + adresa + "]";
+	}
+	public void ispis() {
+		System.out.println(toString());
+	}
+}

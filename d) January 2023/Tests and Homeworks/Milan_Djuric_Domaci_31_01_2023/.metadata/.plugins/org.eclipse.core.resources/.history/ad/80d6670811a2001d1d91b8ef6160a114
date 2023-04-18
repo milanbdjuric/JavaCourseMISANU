@@ -1,0 +1,17 @@
+package djuric;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		GenTip<Integer> ob1 = new GenTip<Integer>(1979);
+		GenTip<Float> ob2 = new GenTip<Float>(12.3456F);
+		GenTip<Boolean> ob3 = new GenTip<Boolean>(true);
+		GenTip<Double> ob4 = new GenTip<Double>(23.45);
+		GenTip<Byte> ob5 = new GenTip<Byte>((byte) 16);
+		
+		ob1.ispis();
+
+	}
+
+}

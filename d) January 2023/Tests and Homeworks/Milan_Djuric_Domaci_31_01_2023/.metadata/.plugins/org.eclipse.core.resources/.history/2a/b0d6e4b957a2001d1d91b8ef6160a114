@@ -1,0 +1,25 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Unesite string: ");
+		String a = s.nextLine();					// unosi se string
+		
+		int brojac = 0;								// inicijalizuje brojac na 0
+		
+		for(int i = 0; i <= a.length(); i++) {		// od prve do poslednje pozicije stringa ispitujemo karakter po karakter da li je space
+			if (a.charAt(i) == ' ') {
+				brojac++;							// ako jeste - brojac ga broji
+			}
+		}
+		System.out.println("U datom stringu ima " + brojac + " space karaktera."); 		// ispis
+
+	}
+
+}

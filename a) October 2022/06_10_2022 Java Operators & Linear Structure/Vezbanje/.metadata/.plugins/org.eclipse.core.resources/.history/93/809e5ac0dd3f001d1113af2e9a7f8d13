@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Sacu ti kazem kolko litara imas. Kolko galona bese imas?");
+		
+		double galon = input.nextDouble();
+		
+		double liter = galon * 4.54;
+		
+		System.out.println("To ti je tacno " + liter + " litara. Fala lepo.");
+		
+
+		
+
+	}
+
+}

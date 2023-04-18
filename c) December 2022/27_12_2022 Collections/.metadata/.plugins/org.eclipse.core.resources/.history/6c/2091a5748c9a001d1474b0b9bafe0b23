@@ -1,0 +1,29 @@
+package dj;
+
+import java.util.*;
+
+public class Mjn {
+
+	public static void main(String[] args) {
+		
+		List<String> kurton = new LinkedList<String>();
+		
+		String[] kurac = {"kurac", "palac", "kriminalac"};
+		
+		for(String s : kurac) {
+			kurton.add(s);	
+		}
+		
+		ListIterator<String> it = kurton.listIterator();
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		
+		kurton.remove(2);
+		
+		System.out.println(kurton);
+
+	}
+
+}

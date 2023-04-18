@@ -1,0 +1,17 @@
+package oasoaso;
+
+public abstract class Osoba {
+	
+	private String ime, datum, adresa;
+	
+	Osoba(String ime, String datum, String adresa){
+		this.adresa = adresa;
+		this.datum = datum;
+		this.ime = ime;
+	}
+	
+	public String opis() {
+		return "IME: " + ime + "\nDATUM RODJENJA: " + datum + "ADRESA: " + adresa;
+	}
+
+}

@@ -1,0 +1,65 @@
+package awerhg;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class dbfg {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost za n: ");
+		int n = sc.nextInt();
+		int x[] = new int[100];
+		int y[] = new int[100];
+		
+		
+		for (int i = 1; i<=n; i++) {
+			System.out.println("Unesite koordinate " + i + ". tacke: ");
+			System.out.print("X[" + i + "] = ");
+			x[i] = sc.nextInt();
+			System.out.print("Y[" + i + "] = ");
+			y[i] = sc.nextInt();
+		}
+		
+		x[0] = x[n];
+		x[n+1] = x[1];
+		y[0] = y[n];
+		y[n+1] = y[1];
+		
+		int s = 0;
+		
+		for (int i = 1; i<=n; i++) {
+			s+=y[i]*(x[i-1]-x[i+1]);
+		}
+		
+		double p = (double) s*0.5;
+		
+		System.out.println("P = " + p);
+		
+		
+		
+	
+		
+		
+		
+		
+}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

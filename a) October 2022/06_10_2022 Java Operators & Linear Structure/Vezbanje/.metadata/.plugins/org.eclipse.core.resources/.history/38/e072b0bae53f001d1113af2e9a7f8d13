@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Unesi koordinate prve tacke");
+		Double x1 = input.nextDouble();
+		Double y1 = input.nextDouble();
+		System.out.println("Unesi koordinate druge tacke");
+		Double x2 = input.nextDouble();
+		Double y2 = input.nextDouble();
+		System.out.println("Rastojanje prve tacke (" + x1 + "," + y1 + " je: " + Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2)));
+		System.out.println("Rastojanje drug tacke (" + x2 + "," + y2 + " je: " + Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2)));
+
+
+	}
+
+}

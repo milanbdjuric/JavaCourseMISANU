@@ -1,0 +1,41 @@
+package milan.djuric;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//1.UNOS PODATAKA
+		
+		Scanner xyz = new Scanner(System.in);
+		
+		System.out.print("Unesite x: ");
+		
+		int x = xyz.nextInt();
+		int y;
+		
+		//2.OBRADA PODATAKA
+		
+		if (x > -2 && x <= 2)
+		{
+			y = 2*x;
+		}
+		else if (x >= 5 && x < 7)
+		{
+			y = 3*x - 1;
+		}
+		else
+		{
+			y=1/x;
+		}
+		
+		//3.STAMPANJE PODATAKA
+		
+		System.out.print("y je: " + y);
+		xyz.close();
+			
+
+	}
+
+}

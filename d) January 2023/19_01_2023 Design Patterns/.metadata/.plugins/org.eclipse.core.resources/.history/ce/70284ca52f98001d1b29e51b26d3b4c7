@@ -1,0 +1,19 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+/* ordinal() - dobija redni broj, tj. polozaj date konstante na listi konstanti u nabrajanju
+ * Redni brojevi pocinju od 0.		
+ */
+		System.out.println("Boja - redni broj");
+		
+		for (Boja x : Boja.values()) {
+			System.out.println(x + " " + x.ordinal());
+		}
+			
+
+	}
+
+}

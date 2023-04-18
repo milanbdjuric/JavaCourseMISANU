@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+C:\Users\DJURIC\Desktop\Milan_Djuric_Domaci_31_01_2023\.metadata\.plugins\org.eclipse.jdt.core
+1524484921.index
+3440317105.index
+3671043010.index
+1865797976.index
+769325999.index
+3121095207.index
+3033770517.index
+3015601676.index
+1571819296.index
+716652470.index
+3300482714.index

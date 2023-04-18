@@ -1,0 +1,26 @@
+package fwefwe;
+
+public class Mijijijijen {
+
+	public static void main(String[] args) {
+		
+		A kurac = new A("KURAC");
+		A picka = new A("PICKA");
+		A govno = new A("GOVNO");
+		
+		B be = new B();
+		
+		Thread sisa = new Thread(be, "SISA");
+
+		kurac.setPriority(Thread.MIN_PRIORITY);
+		picka.setPriority(Thread.MAX_PRIORITY);
+		
+		govno.start();
+		picka.start();
+		kurac.start();
+		sisa.start();
+
+
+	}
+
+}

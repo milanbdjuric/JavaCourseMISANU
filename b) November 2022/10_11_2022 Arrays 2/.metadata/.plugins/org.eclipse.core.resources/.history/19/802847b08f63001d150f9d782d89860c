@@ -1,0 +1,42 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double x[] = new double[100];
+		
+		double suma = 0;
+		
+		System.out.println("Unesite broj clanova niza x: ");
+		int n = sc.nextInt();
+		
+		System.out.println("Unesite clanove niza: ");
+		
+		for (int i=1; i<=n; i++) {
+			System.out.print("x[" + i + "] = ");
+			x[i] = sc.nextInt();
+		}
+		
+		System.out.println("I\tX\tS(X(I))");
+		
+		for (int i = 1; i<=n; i++) {
+			double k = 1;
+			suma += Math.abs(Math.sin(x[i]/k)-Math.pow(Math.cos(x[i], 2))) / (Math.pow(k, 2)+1);
+			if (suma > Math.abs(Math.pow(10, -5))) {
+				System.out.println(i + "\t" + x[i] + "\t" + suma);
+			}
+		}
+		
+
+	}
+}
+
+
+

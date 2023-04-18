@@ -1,0 +1,14 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		Kocka k = new Kocka(1);
+		
+		System.out.println("P = " + k.izracunajPovrsinu());
+		System.out.println("V = " + k.izracunajZapreminu());
+
+	}
+
+}

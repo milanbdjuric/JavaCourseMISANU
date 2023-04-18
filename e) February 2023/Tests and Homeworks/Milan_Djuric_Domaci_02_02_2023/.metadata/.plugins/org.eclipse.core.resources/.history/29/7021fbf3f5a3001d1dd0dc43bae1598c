@@ -1,0 +1,26 @@
+package djuric;
+
+import java.util.Scanner;
+
+public class Mejn {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+			Zaposlen z = new Zaposlen();
+			
+			System.out.print("Ime: ");
+			
+			System.out.print("Datum rodjenja: ");
+			
+			System.out.print("Adresa: ");
+			
+			System.out.print("Naziv firme / skole: ");
+			
+			System.out.print("Naziv odeljenja / razreda: ");
+
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package wdjba;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Daj n: ");
+		int n = sc.nextInt();
+		
+		double i = 1;
+		double s = 0;
+		
+		do {
+			s += 1/Math.pow(3*i, 2);
+			i++;
+		}while (i<=n);
+		System.out.println("s= " + s);
+		
+
+	}
+}

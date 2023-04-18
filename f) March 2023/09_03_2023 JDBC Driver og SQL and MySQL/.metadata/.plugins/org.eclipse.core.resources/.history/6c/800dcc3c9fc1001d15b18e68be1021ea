@@ -1,0 +1,18 @@
+package oasoaso;
+
+public class Mejj {
+
+	public static void main(String[] args) {
+		
+		ProveraDeljivosti x = (a, b) -> (a%b==0);
+		
+		if(x.deljiv(10, 2)) {
+			System.out.print("DENJIWO");
+			
+		}
+		else
+			System.out.println("NE DENJIW");
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package djuric;
+
+public class Mejnara {
+
+	public static void main(String[] args) {
+		
+		// pravi objekat klase A za tip Integer
+		
+		A<Integer> intObjekat = new A<Integer>(100);
+		
+		intObjekat.prikaziTip();
+		
+		int vrednostIntObjekta = intObjekat.getObject();
+		
+		System.out.println("Vrednost: " + vrednostIntObjekta);
+		
+		
+		System.out.println();
+		
+
+		// pravi objekat klase A za ti String
+		
+		A<String> stringObjekat = new A<String>("tekst");
+		
+		stringObjekat.prikaziTip();
+		
+		String str = stringObjekat.getObject();
+		
+		System.out.println("Vrednost: " + str);
+	}
+} // Zakljucak: T je zamena za stvarni tip koji ce biti zadat u trenutku kreiranja objekta klase A.

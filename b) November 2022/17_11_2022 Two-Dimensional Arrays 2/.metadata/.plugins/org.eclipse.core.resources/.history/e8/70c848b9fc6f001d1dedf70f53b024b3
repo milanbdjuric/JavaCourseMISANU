@@ -1,0 +1,29 @@
+package asdg;
+
+import java.util.Scanner;
+
+public class SDFSDF {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int x[][] = {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}};
+		
+		for (int i=0; i<5; i++) {
+			for (int j=0; j<5; j++) {
+				System.out.print(x[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		for (int i=0; i<5; i++) {
+			for (int j=0; j<=i; j++) {
+				System.out.print(x[i][j]+" ");
+			}
+			System.out.println();
+		}
+
+
+	}
+
+}

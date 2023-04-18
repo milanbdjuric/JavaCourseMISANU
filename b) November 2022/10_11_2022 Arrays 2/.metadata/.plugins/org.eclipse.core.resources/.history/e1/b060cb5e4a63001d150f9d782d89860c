@@ -1,0 +1,61 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Koliko brojeva zelite da unesete? ");
+		int n = sc.nextInt();
+		
+		int j, d;
+		
+		int des[] = new int[10];
+		int jed[] = new int[10];
+		
+		for (int i = 0; i<=9; i++) {
+			des[i] = 0;
+			jed[i] = 0;
+		}
+		
+		System.out.println("Unesite brojeve: ");
+		
+		for (int i=0; i<n; i++) {
+			int broj = sc.nextInt();
+			if (broj >= 0 && broj <= 99) {
+				if (broj<10) {
+					j = broj;
+				}
+				else {
+					d = broj / 10;
+					des[d]++;
+					j = broj - 10 * d;
+				}
+				jed[j]++;
+			}
+		}
+		
+		System.out.println("CIFRA\tJEDINICA\tDESETICA");
+		
+		for (int i = 0; i < 10; i++) {
+			System.out.println(i + "\t" + jed[i] + "\t" + des[i]);
+		}
+				
+
+			
+		
+		
+		
+		
+
+		
+	}
+}
+
+
+

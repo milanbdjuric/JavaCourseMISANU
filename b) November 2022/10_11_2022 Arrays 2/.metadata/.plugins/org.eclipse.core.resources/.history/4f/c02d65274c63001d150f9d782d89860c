@@ -1,0 +1,61 @@
+package djuric;
+
+import java.util.Scanner;
+
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite broj stapova m: ");
+		double m = sc.nextDouble();
+		
+		double L[] = new double[100];
+		double b[] = new double[100];
+		double h[] = new double[100];
+		double la[] = new double[100];
+		double I, i;
+
+		
+		System.out.println("Unesite duzinu stapa L i dimenzije poprecnog preseka b i h: ");
+		for (int k=1; k<=m; k++) {
+			System.out.println(k + ". stap: ");
+			System.out.print("b[" + k + "] = ");
+			b[k] = sc.nextDouble();
+			System.out.print("h[" + k + "] = ");
+			h[k] = sc.nextDouble();
+			System.out.print("L[" + k + "] = ");
+			L[k] = sc.nextDouble();
+			}
+		
+		for (int k=1; k<=m; k++) {
+			if (b[k]<h[k]) {
+				double F = b[k]*h[k];
+				I = Math.pow(b[k], 3)*h[k]/12;
+				i = Math.sqrt(I/F);
+				la[k]=L[k]/i;
+			}	
+		}
+		System.out.println("b\th\tL\tvitkost");
+		for (int k=1; k<=m; k++) {
+			if (la[k]>50) {
+				System.out.println(b[k] + "\t" + h[k] + "\t" + L[k] + "\t" + la[k]);
+			}
+		}
+		
+		
+	
+
+		
+		
+		
+
+		
+	}
+}
+
+
+

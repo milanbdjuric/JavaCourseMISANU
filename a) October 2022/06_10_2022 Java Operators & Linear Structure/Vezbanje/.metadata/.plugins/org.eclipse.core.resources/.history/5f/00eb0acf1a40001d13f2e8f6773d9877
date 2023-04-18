@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Kocka {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Unesi stranicu kocke: ");
+		
+		double a = input.nextDouble();
+		
+		System.out.println("Povrsina je: " + (6 * a * a) + " a zapremina " + (a * a * a));
+		
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package djuric;
+
+import java.io.*;
+
+public class Mejn {
+
+	public static void main(String[] args) throws IOException  {
+		
+		File x = new File("D:/djuric.txt");
+		
+		x.createNewFile();
+		
+		FileOutputStream f = new FileOutputStream("D:/djuric.txt");
+		
+		f.write(34);
+		
+
+		
+		
+		
+
+	}
+
+}

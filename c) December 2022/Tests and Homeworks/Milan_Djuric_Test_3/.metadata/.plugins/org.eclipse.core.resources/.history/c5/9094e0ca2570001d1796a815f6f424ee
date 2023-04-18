@@ -1,0 +1,29 @@
+package milan_djuric;
+
+import java.util.Scanner;
+
+public class Zadatak_5 {
+	
+	final static double k = 9.0E9;
+	
+	static double sila (double q1, double q2, double r) {
+		return k*q1*q2/Math.pow(r, 2);
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Unesite vrednost za cesticu q1: ");
+		double q1 = sc.nextDouble();
+		
+		System.out.println("Unesite vrednost za cesticu q2: ");
+		double q2 = sc.nextDouble();
+		
+		System.out.println("Unesite rastojanje izmedju njih: ");
+		double r = sc.nextDouble();
+		
+		System.out.println("F = " + sila(q1, q2, r));
+		sc.close();
+	}
+}

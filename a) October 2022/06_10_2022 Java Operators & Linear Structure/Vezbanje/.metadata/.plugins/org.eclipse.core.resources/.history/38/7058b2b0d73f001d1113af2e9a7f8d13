@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class zdtk {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner unos = new Scanner(System.in);
+		
+		System.out.println("Unesite poluprecnik lopte: ");
+		
+		double r = unos.nextDouble();
+		
+		double P = 4 * Math.pow(r, 2) * Math.PI;
+		
+		double V = 4 * Math.pow(r, 3) * Math.PI / 3;
+		
+		System.out.println("Povrsina lopte je " + P + " a zapremina " + V);
+		
+
+	}
+
+}

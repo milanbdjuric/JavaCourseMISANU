@@ -1,0 +1,13 @@
+package djuric;
+
+public class Niz<Temp> {
+	
+	Temp nekiNiz[];
+	
+	Niz(Temp nekiNiz[]){
+		this.nekiNiz = nekiNiz;
+	}
+
+	
+
+}

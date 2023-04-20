@@ -1,0 +1,157 @@
+DELIMITER //
+CREATE PROCEDURE pitagora(IN a double, b double, OUT c double)
+BEGIN
+SET c = SQRT(POWER(a,2)+POWER(b,2));
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE zapreminaValjka(IN r double, IN h double, OUT V double)
+BEGIN
+SET V = POWER(r,2)*PI()*h;
+END //
+DELIMITER ;
+
+
+#################
+
+
+
+CREATE TABLE IF NOT EXISTS products(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NULL,
+    price DECIMAL(10, 2) NULL,
+    category_id INT NOT NULL,
+    quantity_aviable INT NULL DEFAULT '0'    
+)
+ENGINE = INNODB;
+
+CREATE TABLE IF NOT EXISTS log_products(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NULL,
+    old_price DECIMAL(10, 2) NULL,
+    new_price DECIMAL(10, 2) NULL,
+    created_at DATETIME NULL DEFAULT NULL
+)
+ENGINE = INNODB;
+
+INSERT INTO products (name, price, category_id, quantity_aviable) VALUES
+("abc", 5.67, 1, 1)
+
+
+
+##################
+
+
+DELIMITER //
+CREATE PROCEDURE jerparan(IN x INT, OUT y VARCHAR(20))
+BEGIN
+IF (x MOD 2 = 0) THEN
+SET y = 'PARAN'; ELSE SET y = 'NEPARAN';
+END IF;
+END //
+DELIMITER ;
+
+#--------------------
+
+DELIMITER //
+CREATE PROCEDURE pretraga(IN ime VARCHAR(20))
+BEGIN
+SELECT * FROM osobe
+WHERE osobe.ime = ime; 
+END //
+DELIMITER ;
+
+CALL pretraga('Nikola');
+
+#-----------------------
+
+DELIMITER //
+CREATE FUNCTION fadar(a DOUBLE, b DOUBLE, c DOUBLE) RETURNS DOUBLE
+DETERMINISTIC
+BEGIN
+DECLARE f DOUBLE;
+SET f = 2*(a*b + c*b + c*a);
+RETURN f;
+END //
+DELIMITER ;
+
+#-----------------------
+
+
+DELIMITER //
+CREATE FUNCTION prosek() RETURNS double
+DETERMINISTIC
+BEGIN
+
+DECLARE sek double;
+SET sek = (SELECT AVG(osobe.godine) FROM osobe);
+RETURN sek;
+
+END //
+DELIMITER ;
+
+
+###########################
+
+
+
+
+CREATE TABLE osobe (
+id int PRIMARY KEY AUTO_INCREMENT,
+    ime varchar(45) DEFAULT NULL,
+    prezime varchar(45) DEFAULT NULL,
+    godiste int(4) DEFAULT NULL,
+    status varchar(45) DEFAULT NULL
+)
+ENGINE = INNODB;
+
+CREATE TABLE brojIzmedju (
+	id int PRIMARY KEY AUTO_INCREMENT,
+    brojIzmedju int(11) 
+)
+ENGINE = INNODB;
+
+DELIMITER $$
+DROP TRIGGER if EXISTS brojIzmedju_TRIGGER $$
+CREATE TRIGGER brojIzmedju_TRIGGER AFTER INSERT ON `osobe` FOR EACH ROW
+BEGIN
+	INSERT INTO brojIzmedju (`brojIzmedju`) (SELECT COUNT(`osobe`.`id`)
+ FROM `osobe` WHERE `osobe`.`godiste` BETWEEN 1985 AND 1995);
+END ; $$
+
+
+
+INSERT INTO osobe (ime, prezime, godiste) VALUES
+("Pera", "Peric", 1990),
+("Zika", "Zikic", 2000),
+("Mika", "Mikic", 1987),
+("Nikola", "Nikolic", 2004)
+
+
+
+CREATE TABLE brojNeparnih(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    brojNeparnih int(11) 
+)
+ENGINE = INNODB;
+
+
+DELIMITER $$
+CREATE TRIGGER brojNeparnih_TRIGGER AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+	INSERT INTO `brojneparnih`(`brojNeparnih`)  (SELECT COUNT(`osobe`.`id`) FROM 
+`osobe` WHERE `osobe`.`godiste` MOD 2 = 1);
+END ; $$
+
+
+INSERT INTO osobe (ime, prezime, godiste) VALUES
+("Pera", "Peric", 1990),
+("Zika", "Zikic", 2000),
+("Mika", "Mikic", 1987),
+("Nikola", "Nikolic", 2004)
+
+
+#######################
+
+

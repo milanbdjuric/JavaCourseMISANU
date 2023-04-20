@@ -1,0 +1,265 @@
+
+#distinct izbacuje duplikate 
+
+SELECT ime, prezime
+FROM radnici
+ORDER BY datumrodj LIMIT 5
+
+#limit 5 ogranicava koliko rezultata izbacuje
+
+SELECT ime, prezime 
+FROM radnici 
+ORDER BY datumrodj LIMIT 5;
+
+SELECT ime, prezime 
+FROM radnici 
+ORDER BY datumrodj DESC LIMIT 5; # desc - =opadajuciredosled
+
+SELECT ime, prezime
+FROM radnici LIMIT 1, 1   - od pozicije, koliko 
+
+#prvi radnik ima indeks 0, drugi ima indeks 1
+#nama je potreban drugi radnik
+
+
+SELECT sektor_id AS Sektor, COUNT(*) AS BrojRadnika #prebrojavamo koliko radnika
+FROM radnici
+GROUP BY sektor_id
+
+SELECT sektor_id AS Sektor, COUNT(*) AS BrojRadnika
+FROM radnici
+GROUP BY sektor_id
+HAVING COUNT(*) > 1
+
+#having se koristi nakon GROUP BY omogucuje jos jedno ispisivanje/filtriranje nakon group by
+
+SELECT sektor_id AS Sektor, COUNT(*) AS BrojRadnika
+FROM radnici WHERE pol='Z'
+GROUP BY sektor_id
+HAVING COUNT(*) > 1
+
+SELECT sektor_id AS Sektor, pol AS Pol, AVG(plata) AS ProsekPlate
+FROM radnici
+GROUP BY sektor_id, pol
+
+SELECT sektor_id AS Sektor, pol AS Pol, AVG(plata) AS ProsekPlate
+FROM radnici
+GROUP BY sektor_id, pol
+ORDER BY ProsekPlate DESC
+
+#1
+
+SELECT prezime FROM radnici
+
+#2
+
+SELECT * 
+FROM radnici 
+ORDER BY prezime DESC
+
+#3
+
+SELECT ime, plata 
+FROM radnici 
+ORDER BY plata 
+
+#4
+
+SELECT COUNT(sektor_id) as ukupanBrojSektora FROM sektori
+
+#5
+
+SELECT ime, prezime, DATE_FORMAT(datumrodj, '%M') AS MesecRodjenja FROM radnici ORDER BY prezime
+
+
+SELECT ime AS ImeRadnika, prezime AS PrezimeRadnika, plata AS Plata, plata + 5000 AS uvecana_plata FROM radnici where plata + 5000 > 70000;
+
+
+SELECT r.radnik_ID, r.ime, r.prezime, s.naziv
+FROM radnici AS r INNER JOIN sektori AS s 
+ON r.sektor_id = s.sektor_id
+
+SELECT r.radnik_id, r.ime, r.prezime, s.naziv
+FROM radnici AS r INNER JOIN sektori AS s
+USING(sektor_id)
+
+
+SELECT CONCAT(r.ime, ' ', r.prezime) AS RADNIK, s.naziv AS SEKTOR 
+FROM radnici AS r INNER JOIN sektori AS s
+USING(sektor_id)                       # ili ON r.sektor_id = s.sektor_id
+
+SELECT r.*, s.naziv
+FROM radnici AS r LEFT JOIN sektori AS s
+on r.sektor_id = s.sektor_id
+
+
+###############################
+
+
+
+DATE_FORMAT(datumRodjenja, '%M') as mesecRodjenja
+
+SELECT sektor_id, COUNT(*) AS BrojRadnika 
+FROM radnici
+GROUP BY sektor_id
+HAVING COUNT(*)>1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 01. Prikazati prezimena svih radnika
+
+SELECT prezime FROM radnici
+
+
+# 02. Prikazati sve podatke iz tabele sortirane po prezimenima (Z-A), opadajuce. 
+
+SELECT * FROM RADNICI
+ORDER BY prezime DESC
+
+
+# 03. Prikazati imena i zarade svih radnika sortiranih prema zaradi rastuce.
+
+SELECT ime, prezime, plata FROM radnici
+ORDER BY plata ASC
+
+
+# 04. Prikazati ukupan broj sektora. Upit izvrsiti na dva nacina.
+
+SELECT COUNT(sektor_id) AS BrojSektora 
+FROM sektori;
+
+
+# 05. Prikazati najvecu platu svih ranika
+
+SELECT MAX(plata) AS NajvecaPlata FROM radnici
+
+
+# 06. Prikazati najstarijeg radnika
+
+SELECT * FROM radnici
+ORDER BY datumrodj LIMIT 1
+
+# 07. Prikazati podatke o radniku koji se preziva Lazic
+
+SELECT * FROM radnici
+WHERE prezime = "Lazic"
+
+# 08. Prikazati podatke o svim zenskim radnicima
+
+SELECT * FROM radnici
+WHERE pol = 'Z'
+
+# 09. Prikazati podatke o radnicima koji se prezivaju Anic i Mikic
+
+SELECT * FROM radnici
+WHERE prezime IN ('Anic', 'Mikic')
+
+# 10. Prikazati imena i prezimena svih radnika koji su rodjeni izmedju 1990 i 2000 godine
+
+SELECT ime, prezime FROM radnici
+WHERE datumrodj BETWEEN '1990-01-01' AND '2000-01-01'
+
+# 11. Prikazati imena i prezimena svih radnika cije prezime pocinje na slovo A
+
+SELECT ime, prezime FROM radnici
+WHERE prezime LIKE('A%')
+
+# 12. Promeniti ime radniku koji se zove Milan Milanovic, tako da se preziva Petrovic. Upit izvrsiti kroz korake 1-3.
+
+SELECT radnik_id FROM radnici
+WHERE ime = "Milan" AND prezime = "Milanovic"
+#go. #ovde vidimo koji mu je radnik_ID
+UPDATE radnici SET prezime = "Petrovic" WHERE radnik_id = 5
+
+# 13. Obrisati radnika Lazu Lazica. Upit izvrsiti kroz korake 1-4.
+
+SELECT radnik_id FROM radnici
+WHERE ime = "Laza" AND prezime = "Lazic"
+#go
+DELETE FROM radnici WHERE radnik_id = 3
+
+# 14. Prikazati imena i prezimena svih radnika ispisanih velikim slovima u koloni RADNIK sortiranih 
+
+SELECT CONCAT(UPPER(ime), " ", UPPER(prezime)) AS RADNICI FROM radnici
+ORDER BY prezime ASC
+
+# 15. Prikazati imena i prezimena svakog radnika i mesec rodjenja ispisan u koloni MesecRodjenja (January-Decembar)
+
+SELECT ime, prezime, DATE_FORMAT(datumrodj, '%M') AS MesecRodjenja FROM radnici 
+ORDER BY prezime
+
+# 16. Prikazati za svaki sektor broj radnika koji radi u njemu
+
+SELECT sektor_id, COUNT(*) AS BrojRadnika FROM radnici
+GROUP BY sektor_id;
+
+# 17. Prikazati za svaki sektor broj radnika koji radi u njemu, tako da su prikazani podaci samo o sektorima koji imaju više od jednog radnika.
+
+SELECT sektor_id, COUNT(*) as BrojRadnika FROM radnici
+GROUP BY sektor_id HAVING COUNT(*)>1
+
+# 18. Prikazati podatke samo o sektorima koji imaju više od jednog radnika
+
+SELECT sektor_id AS Sektor, COUNT(*) AS BrojRadnika FROM radnici 
+GROUP BY sektor_id HAVING COUNT(pol="M") > 1
+
+# 19.) Prikazati podatke o prosečnim platama po sektorima po polovima radnika.
+
+SELECT sektor_id AS sektor, pol AS Pol, AVG(plata) AS prosecnaPlata FROM radnici 
+GROUP BY sektor_id, pol
+ORDER BY AVG(plata)
+
+# 20.) Prikazati imena i prezimena radnika, njihove plate i plate uvećane za bonus od 5000, kod radnika čija plata nakon dodatka bonusa ima iznos veci od 70000 
+
+SELECT ime, prezime, plata, plata+5000 AS UvecanaPlata FROM radnici
+where Plata+5000>70000
+ORDER BY plata DESC
+
+# 21.) Prikazati prvih 5 radnika (imena i prezimena), sortiranih prema datumu opadajuce.
+
+SELECT concat(ime, " ", prezime) as Ime_Prezime FROM radnici
+ORDER BY datumrodj DESC LIMIT 5
+
+# 22.) Prikazati prvih 5 najstarijih radnika.
+
+SELECT * FROM radnici
+ORDER BY datumrodj LIMIT 5
+
+# 23.) Prikazati drugu, trecu i cetrvru osobu, odnosno radnika koji su najstariji.
+
+SELECT * FROM radnici
+ORDER BY datumrodj LIMIT 1, 3
+
+# 24.) Prikazati pet radnika sa najmanjim platama.
+
+SELECT * FROM radnici
+ORDER BY plata LIMIT 5
+
+# 25.) Prikazati sve radnike zenskog pola koje su rodjenje 1987 godine.
+
+SELECT * FROM radnici
+WHERE pol = 'z' AND datumrodj LIKE("1987%")

@@ -1,0 +1,93 @@
+CREATE DATABASE automobili;
+
+CREATE TABLE modeli(
+    modelID int PRIMARY KEY,
+    modelOznaka varchar(45) not null,
+    jacinaMotora int(3),
+    brojVrata int(1),
+    cena INT,
+    proizvodjacID int,
+    FOREIGN KEY(proizvodjacID) REFERENCES proizvodjaci(proizvodjacID)
+    ON UPDATE CASCADE
+    on DELETE no ACTION
+) ENGINE = INNODB;
+
+
+
+#######################################
+
+
+
+CREATE DATABASE radnik
+
+CREATE TABLE Sektor(
+sektorID INT(10) PRIMARY KEY,
+naziv VARCHAR(55) NOT NULL
+) ENGINE = INNODB
+
+CREATE TABLE Radnik(
+radnikID INT(10) PRIMARY KEY,
+    ime VARCHAR(55) NOT NULL,
+    prezime VARCHAR (55) NOT NULL,
+    datumRodj DATE,
+    pol VARCHAR(1),
+    plata INT(10),
+    brsek INT(10),
+    FOREIGN KEY (brsek) REFERENCES sektor(sektorID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)ENGINE = INNODB
+
+INSERT INTO `sektor`(`sektorID`, `naziv`) VALUES (1, "Uprava"), (2, "Administracija"), (3, "Marketing"), (4, "Razvoj softvera"), (5, "Testiranje")
+
+INSERT INTO `radnik`(`radnikID`, `ime`, `prezime`, `datumRodj`, `pol`, `plata`, `brsek`) 
+VALUES (1, "Pera", "Peric", '2000-01-01', "M", 45000, 1),
+(2, "Zika", "Zikic", '2001-01-01', "M", 55000, 2),
+(3, "Laza", "Lazic", '2002-01-01', "M", 65000, 3),
+(4, "Mika", "Mikic", '1990-01-01', "M", 75000, 4),
+(5, "Milan", "Milanovic", '1985-01-01', "M", 85000, 5),
+(6, "Ana", "Anic", '1986-01-02', "Z", 46000, 1),
+(7, "Ivana", "Ivanovic", '1987-03-03', "Z", 56000, 2),
+(8, "Nina", "Ninic", '1988-04-04', "Z", 66000, 3),
+(9, "Mina", "Minic", '1989-05-05', "Z", 76000, 4),
+(10, "Masa", "Masic", '1989-06-06', "Z", 88000, 5)
+
+
+
+##########################################
+
+
+
+CREATE DATABASE bazaX
+
+CREATE TABLE proizvodjaci(
+proizvodjacID int PRIMARY KEY,
+nazivProizvodjaca varchar(20) not null,
+adresaProizvodjaca varchar(50) not null,
+sajtProizvodjaca varchar(20) not null,
+pibProizvodjaca int(9) not null
+) ENGINE = INNODB;
+
+CREATE TABLE modeli(
+modelID int PRIMARY KEY,
+oznakaModela varchar(20) not null,
+jacinaMotora int not null,
+brojVrata varchar(5) not null,
+cena decimal not null
+) ENGINE = INNODB;
+
+ALTER TABLE modeli
+ADD COLUMN proizvodjacID int
+
+ALTER TABLE modeli
+ADD FOREIGN KEY (proizvodjacID) REFERENCES proizvodjaci(proizvodjacID)
+ON UPDATE CASCADE
+ON DELETE NO ACTION
+
+INSERT INTO proizvodjaci(`proizvodjacID`,`nazivProizvodjaca`,`adresaProizvodjaca`,`sajtProizvodjaca`,`pibProizvodjaca`)
+VALUES (1, "Ford", "Autoput BB", "www.ford.com", 162738566), (2, "Opel", "Glavna 34", "www.opel.com", 183222438)
+
+INSERT INTO modeli(`modelID`,`oznakaModela`,`jacinaMotora`,`brojVrata`,`cena`,`proizvodjacID`)
+VALUES (1, "Fiesta", 80, 3, 250000, 1), (2, "Focus", 90, 5, 400000, 1), (3, "Fusion", 100, 5, 450000, 1),
+(4, "Corsa", 70, 3, 200000, 2), (5, "Astra", 90, 5, 400000, 2), (6, "Insignia", 120, 5, 1000000, 2)
+

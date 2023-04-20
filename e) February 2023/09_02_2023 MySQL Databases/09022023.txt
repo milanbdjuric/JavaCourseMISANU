@@ -1,0 +1,477 @@
+CREATE DATABASE radnik
+
+
+CREATE TABLE Sektor(
+sektorID INT(10) PRIMARY KEY,
+naziv VARCHAR(55) NOT NULL
+) ENGINE = INNODB
+
+
+CREATE TABLE Radnik(
+radnikID INT(10) PRIMARY KEY,
+    ime VARCHAR(55) NOT NULL,
+    prezime VARCHAR (55) NOT NULL,
+    datumRodj DATE,
+    pol VARCHAR(1),
+    plata INT(10),
+    brsek INT(10),
+    FOREIGN KEY (brsek) REFERENCES sektor(sektorID)
+    ON UPDATE CASCADE
+    ON DELETE NO ACTION
+)ENGINE = INNODB
+
+
+INSERT INTO `sektor`(`sektorID`, `naziv`) VALUES (1, "Uprava"), (2, "Administracija"), (3, "Marketing"), (4, "Razvoj softvera"), (5, "Testiranje")
+
+
+INSERT INTO `radnik`(`radnikID`, `ime`, `prezime`, `datumRodj`, `pol`, `plata`, `brsek`) 
+VALUES (1, "Pera", "Peric", '2000-01-01', "M", 45000, 1),
+(2, "Zika", "Zikic", '2001-01-01', "M", 55000, 2),
+(3, "Laza", "Lazic", '2002-01-01', "M", 65000, 3),
+(4, "Mika", "Mikic", '1990-01-01', "M", 75000, 4),
+(5, "Milan", "Milanovic", '1985-01-01', "M", 85000, 5),
+(6, "Ana", "Anic", '1986-01-02', "Z", 46000, 1),
+(7, "Ivana", "Ivanovic", '1987-03-03', "Z", 56000, 2),
+(8, "Nina", "Ninic", '1988-04-04', "Z", 66000, 3),
+(9, "Mina", "Minic", '1989-05-05', "Z", 76000, 4),
+(10, "Masa", "Masic", '1989-06-06', "Z", 88000, 5)
+
+
+# prikazati imena svih radnika
+
+SELECT ime
+FROM radnik
+
+
+# prikazati imena, prezimena i datum rodjenja svih radnika
+
+SELECT ime, prezime, datumRodj
+FROM radnik
+
+
+# prikazati sve podatke o radnicima
+
+# I nacin: navodjenjem imena svih kolona u SELECT klauzuli, odvojenih znakom (,)
+
+# II nacin: koriscenjem operatora (*)
+
+SELECT *
+FROM radnik
+
+
+# prikazati nazive svih sektora
+
+SELECT naziv
+FROM sektor
+
+
+# Prikazati ime, prezime i platu svih radnika sortiranih po iznosu plate u rastucem poretku
+
+SELECT ime, prezime, plata
+FROM radnik
+ORDER BY plata
+
+# Prikazati ime, prezime i platu svih radnika sortiranih po iznosu plate u opadajucem poretku
+
+SELECT ime, prezime, plata
+FROM radnik
+ORDER BY plata DESC
+
+# asc - ascending - rastuce(DEFAULT)
+# desc - descending - opadajuce
+
+
+# Prikazati ime, prezime i datum rodjenja svih radnika sortiranih u rastucem redosledu po datumu rodjenja
+
+SELECT ime, prezime, datumRodj
+FROM radnik
+ORDER BY datumRodj asc
+
+
+# izracunati prosecnu platu svih radnika
+# AVG(kolona) avg je average
+
+SELECT AVG(plata)
+FROM radnik
+
+
+# izracunati prosecnu platu svih radnika
+# AVG(kolona) avg je average
+# alias AS
+
+SELECT AVG(plata) AS ProsekPlata
+FROM radnik
+
+
+# ispisati ukupan broj svih radnika
+
+SELECT COUNT(radnikID) AS UkupanBrojRadnika
+FROM radnik
+
+
+# prikazati najvecu platu
+
+SELECT MAX(plata) AS NajvecaPlata
+FROM radnik
+
+
+# prikazati najmanju paltu radnika
+
+SELECT MIN(plata) AS NajmanjaPlata
+FROM radnik
+
+
+# prikazati zbir svih plata radnika
+
+SELECT SUM(plata) AS ZbirPlata
+FROM radnik
+
+
+# prikazati sve radnike koji se prazivaju Peric
+
+SELECT *
+FROM radnik
+WHERE prezime = "Peric"
+
+
+# prikazati imena i prezimena svih radnika cija je plata veca od 60000
+
+SELECT ime, prezime
+FROM radnik
+WHERE plata>60000
+
+
+# prikazati sve podatke o svim radnicima koji se prezivaju lazic i kojima je plata manja od 60000
+
+SELECT *
+FROM radnik
+WHERE prezime = "lazic" AND plata<60000
+
+
+# prikazati sve podatke o svim radnicima koji se prezivaju zikic ili anic
+
+SELECT *
+FROM radnik
+WHERE prezime = "Zikic" OR prezime = "Anic"
+# ili ovako:
+SELECT *
+FROM radnik
+WHERE prezime IN("anic", "lazic")
+
+
+# PRikazati sve podatke o svim radnicima koji se ne prezivaju Peric i ninic; koristiti IN klauzulu
+
+SELECT *
+FROM radnik
+WHERE prezime NOT IN("Peric", "Ninic")
+#ili
+SELECT * 
+FROM radnik 
+WHERE prezime <>"Peric" AND prezime <>"Ninic"
+
+
+# prikazati sve podatke o svim radnicima cija se plata krece izmeju 60000 i 80000
+
+SELECT * 
+FROM `radnik` 
+WHERE plata > 60000 AND plata < 80000
+#ili
+SELECT *
+FROM radnik
+WHERE plata BETWEEN 60000 AND 80000
+
+
+# prikazati sve podatke o svim radnicima cije prazime pocinje slovom M
+
+SELECT *
+FROM radnik
+WHERE prezime LIKE "M%"
+
+(u sredini bi bili %M% )
+
+
+# prikazati sve podatke o svim radnicima cije prazime ne sadrzi slovo N
+
+SELECT *
+FROM radnik
+WHERE prezime NOT LIKE "%n%"
+
+
+# prikazati sve podatke o svim radnicima ciji datum rodjenja nije upisan
+
+SELECT *
+FROM radnik
+WHERE datumRodj IS null
+
+
+# prikazati sve podatke o svim radnicima sortirane opadajuce po broju sektora a rastuce po prezimenu
+
+SELECT *
+FROM radnik
+ORDER BY brsek DESC, prezime ASC
+
+
+# 1. Prikazati sve radnike koji rade u 2. sektoru. 2. Prikazati sve muske radnike. 3. Prikazati sve radnike koji su rodjeni izmedju 1990 i 2000 godine. 4. Prikazati sve zenske radnike koji su stariji od 20 godina. 5.Prikazati sve muske radnike cija je plata manja od 64321.
+
+SELECT ime, prezime
+FROM radnik
+WHERE brsek = 2
+
+SELECT *
+FROM radnik
+WHERE pol = "M"
+
+SELECT *
+FROM radnik
+WHERE datumRodj BETWEEN '1980-01-01' and '2000-01-01' 
+
+
+SELECT *
+FROM radnik
+WHERE pol = "Z" AND datumRodj>'2003-02-09'
+
+SELECT *
+FROM radnik
+WHERE pol = "M" AND plata<64321
+
+
+# 6. Prikazati sve muske radnike koji imaju platu vecu od 65000 i koji u imenu imaju slovo M na prvo mesto. 7. Prikazati sve zenske radnike koji imaju platu manju od 60000 i koji nemaju slovo N u imenu. 8. Prikazati sve radnike po sektorima sortirane prema broju sektora u kome rade silazno, a prema imenu isto silazno. 9. Prikazati zbirnu platu svih radnika koji rade u 2. sektoru. 10. Prikazati samo najvecu i samo najmanju platu iz svih sektora.. 11. Prikazati sve radnike zenskog pola koje su rodjenje 1987 godine. 12. Prikazati sve muske osobe koje rade Testiranje i koje su starije od 1990g.
+
+SELECT * 
+FROM radnik 
+WHERE pol = "M" AND plata>65000 AND  ime LIKE "M%"
+
+SELECT * 
+FROM radnik
+WHERE pol = "Z" AND plata<60000 AND  ime NOT LIKE "N%"
+
+SELECT * 
+FROM radnik
+ORDER BY brsek DESC, ime DESC
+
+SELECT SUM(plata)
+FROM radnik
+WHERE brsek = 2
+
+SELECT min(plata) AS NajmanjaPlata, max(plata) AS NajvecaPlata 
+FROM radnik
+
+SELECT * 
+FROM radnik
+WHERE pol = "Z" AND datumrodj LIKE('1987-%-%')
+
+SELECT * 
+from radnik 
+WHERE pol = "M" AND brsek = 5 AND datumrodj LIKE('1990-%-%')
+
+
+
+
+#apsolutna vrednost
+SELECT ABS(-55) AS ABS;
+
+#zaokruzuje na veci broj
+SELECT CEILING(25.75) AS CeilValue;
+# na manji je FLOOR
+
+
+UPDATE radnik
+SET ime = "Milojka"
+WHERE radnikID = 6
+
+UPDATE radnik set prezime = "Nikolic" WHERE radnik_id = 11;
+
+DELETE FROM radnik
+WHERE radnikID = 6
+
+CREATE VIEW sviradnici AS
+SELECT *
+FROM radnik
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. За сваки филм знамо његов назив и годину када је снимљен. Филм може да има тачно једног режисера. За сваког режисера знамо име, презиме, државу рођења, годину рођења, годину смрти. Потребно је да податке о улогама разних глумаца у разним филмовима. За сваког глумца знамо уметничко име (обавезно), име и презиме (опционо), државу рођења, годину рођења, годину смрти. Сваки филм припада тачно једном жанру (комедија, хорор, крими...). Жанр има назив и опис. Приказати и узорак података у бази креираној на основу овог модела.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

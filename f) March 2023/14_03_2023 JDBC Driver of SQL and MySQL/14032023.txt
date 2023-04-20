@@ -1,0 +1,337 @@
+CREATE table t (s1 int);
+insert into t values (5);
+
+CREATE table test2(
+    idtest2 int not null AUTO_INCREMENT,
+    ime varchar(20),
+    god year null,
+    PRIMARY KEY(idtest2));
+	
+insert into test2(ime, god) VALUES('pera',2000);
+insert into test2(ime, god) VALUES('mika',1999);
+insert into test2(ime, god) VALUES('laza',2001);
+insert into test2(ime, god) VALUES('zika',2000);
+
+
+########################################
+
+# opsti oblik procedure:
+
+DELIMITER //
+CREATE PROCEDURE nazivProcedure()
+BEGIN
+ #teloProcedure
+END
+DELIMITER ;
+
+##########################################
+
+DELIMITER $$                           # ( $$ ili // je svejedno )
+CREATE PROCEDURE p1()
+BEGIN
+ SELECT * FROM t;
+END $$
+DELIMITER ;
+
+# pa pozivamo proceduru:
+
+CALL p1();
+
+#########################################
+
+DELIMITER //
+CREATE PROCEDURE p2(IN p int)
+BEGIN
+ SET @x = p;
+END //
+DELIMITER ;
+
+CALL p2(12345);
+SELECT @x;
+
+##########################################
+
+DELIMITER //
+CREATE PROCEDURE proveraPoGodini(IN p year)
+BEGIN
+SELECT * FROM test2 WHERE god = p;
+END //
+DELIMITER ;
+
+CALL proveraPoGodini(2000)
+
+##########################################
+
+DELIMITER //
+CREATE PROCEDURE p3(OUT p int)
+BEGIN
+SET p = 10;
+END //
+DELIMITER ;
+
+CALL p3(@t);
+SELECT @T
+
+############################################
+
+DELIMITER //
+CREATE PROCEDURE p4()
+BEGIN
+SELECT CURRENT_DATE, rand();
+END //
+DELIMITER ;
+
+CALL(p4);
+
+###########################################
+
+DELIMITER //
+CREATE PROCEDURE p5()
+BEGIN
+DECLARE a int;
+DECLARE b int;
+SET a = 5;
+SET b = 5;
+INSERT INTO t VALUES(a);
+SELECT s1 * a FROM t WHERE s1 >= b;
+END //
+DELIMITER ;
+
+CALL p5();
+
+#########################################
+
+DELIMITER //
+CREATE PROCEDURE p6()
+BEGIN
+DECLARE a, b int DEFAULT 10;
+INSERT INTO t VALUES(a);
+SELECT s1 * a FROM t WHERE s1 >= b;
+END //
+DELIMITER ;
+
+CALL p6();
+
+#########################################
+#Napisati proceduru koja izracunava povrsinu kruga
+
+DELIMITER //
+CREATE PROCEDURE krug(IN r double, OUT p double)
+BEGIN
+SET p = r * r * pi();
+END //
+DELIMITER ;
+
+CALL krug(3, @s);
+SELECT @s
+
+##########################################
+#Napisati proceduru koja izracunava povrsinu pravougaonika
+
+DELIMITER //
+CREATE PROCEDURE pravougaonik(IN a double, IN b double, OUT p double)
+BEGIN
+SET p = a*b;
+END //
+DELIMITER ;
+
+CALL pravougaonik(3, 5, @s); 
+SELECT @s AS POVRSINA
+
+
+
+#######################
+
+
+
+1. Napraviti bazu.
+
+- koristiti tabele:
+
+CREATE TABLE osobe(
+    osobaID int PRIMARY KEY AUTO_INCREMENT,
+    ime varchar(45) DEFAULT null,
+    prezime varchar(45) DEFAULT null,
+    datumRodjenja date DEFAULT null,
+    godine int DEFAULT null,
+    status varchar(45) DEFAULT null
+    )ENGINE = INNODB;
+    
+CREATE TABLE podaci(
+    podatakID int PRIMARY KEY AUTO_INCREMENT,
+    brojMaloletnih int DEFAULT null,
+    brojPunoletnih int DEFAULT null,
+    brojRodjenih1985do1995 int DEFAULT null,
+    neparanBrojGodina int DEFAULT null
+)ENGINE = INNODB
+
+2. Napisati neophodan broj triggera koji će pokriti sve događaje nad tabelom `osobe` i to tako da će:
+a) izračunati godine starosti osobe i upisati ih u kolonu `godine` i shodno tom podatku u kolonu `status`, tabele `osobe`, upisaće ("punoletan", odnosno "maloletan");
+
+DELIMITER //
+CREATE TRIGGER godineStarosti AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+INSERT INTO osobe.godine (osobe) (SELECT year(CURRENT_DATE) - year(osobe.datumRodjenja)) FROM osobe;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER MaloPunoLetni AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+IF osobe.godine > 17 THEN
+INSERT INTO osobe (osobe.status) VALUES ('Punoletan');
+ELSE
+INSERT INTO osobe (osobe.status) VALUES ('Maloletan');
+END IF;
+END //
+DELIMITER ;
+
+b) shodno događaju nad tabelom `osobe`, trigger će automatski popunjavati tabelu `podaci` na sledeći način:
+   - u kolone brojMaloletnih i brojPunoletnih upisuje broj maloletnih i broj punoletnih osoba respektivno;
+
+CREATE TRIGGER brojLeta AFTER INSERT ON osobe FOR EACH ROW BEGIN INSERT INTO podaci (podaci.brojMaloletnih) (SELECT COUNT(osobaID) FROM osobe WHERE status = 'Maloletan'); END;
+
+DELIMITER //
+CREATE TRIGGER brojLeta2 AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+INSERT INTO podaci (podaci.brojPunoletnih)
+(SELECT COUNT(osobaID) FROM osobe WHERE osobe.status = 'Punoletan');
+END //
+DELIMITER ;
+
+   - u kolonu brojRodjenih1985do1995 upisuje broj osoba rođenih između 1985 i 1995 godine;
+
+DELIMITER //
+CREATE TRIGGER godista AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+INSERT INTO podaci (podaci.brojRodjenih1985do1995)
+(SELECT COUNT(osobaID) FROM osobe WHERE year(osobe.datumRodjenja) BETWEEN 1985 AND 1995);
+END //
+DELIMITER ;
+
+   - u kolonu neparanBrojGodina upisuje broj osoba koje imaju neparan broj godina.
+
+DELIMITER //
+CREATE TRIGGER nepar AFTER INSERT ON osobe FOR EACH ROW
+BEGIN
+INSERT INTO podaci (podaci.neparanBrojGodina)
+(SELECT COUNT(osobaID) FROM osobe WHERE osobe.godine MOD 2 <> 0);
+END //
+DELIMITER ;
+   
+Treba predvideti sve moguće događaje nad tabelom `osobe` tako da trigeri odrade posao u svakom slučaju, tj. da se u tabeli nakon nekog događaja ne nađe osoba uzrasta mlađeg od 18 godina sa statusom punoletan i slično.
+I drugo, trigeri ne smeju đubriti tabelu `podaci` NULL vrednostima, a poslednji zapis u tabeli `podaci` mora da daje tačne podatke koji opisuju tabelu `osobe`. NPR: ne sme da se desi događaj u tabeli `osobe` takav da u tabeli `podaci` u zadnjem zapisu stoji pogrešan podatak (NPR: brojMaloletnih ne odgovara stvarnom broju maloletnih osoba u tabeli `osobe` i sl.)
+
+3. Napisati JAVA program tj. pokretačku Main klasu, koja se povezuje sa bazom:
+
+a) i omogućava:
+
+- unos podataka u tabelu `osobe` sa glavnog ulaza (tastature);
+
+- promenu podataka u tabeli `osobe` podacima unetim sa glavnog ulaza;
+
+- brisanje podataka iz tabele `osobe`;
+
+- štampanje podataka iz tabele `osobe` na glavnom izlazu (ekranu);
+
+b) Nakon svakog događaja nad tabelom `osobe` pobrojanih pod a) ispisati na glavnom izlazu i podatke koji nakon događaja prikazuju stanje u tabeli `osobe`, a koji se nalaze u poslednjem redu tabele `podaci`.
+
+Napomene:
+
+Unose se samo tri podatka u tabelu `osobe` (ime, prezime i datum rođenja).
+
+Izmene i brisanje podataka iz tabele `osobe` se vrše za unet ID osobe.
+
+Tabelu `podaci` će hendlovati triggeri, pa je unos u nju nepotreban.
+
+##################
+
+CREATE DATABASE fakultet;
+
+CREATE TABLE studenti(
+    studentID INT PRIMARY KEY AUTO_INCREMENT,
+    ime VARCHAR(45) NOT null,
+    prezime VARCHAR(45) NOT null,
+    grad VARCHAR(45) NOT null,
+    ulica VARCHAR(45) NOT null,
+    broj VARCHAR(45) NOT null,
+    brojIndeksa INT NOT null
+)ENGINE = INNODB;
+
+CREATE TABLE predmeti(
+    predmetID INT PRIMARY KEY AUTO_INCREMENT,
+    naziv VARCHAR(45) NOT null
+)ENGINE = INNODB;
+
+CREATE TABLE predavanja(
+    predavanjeID INT PRIMARY KEY AUTO_INCREMENT,
+    datum DATE NOT null,
+    predmetID INT,
+    FOREIGN KEY (predmetID) REFERENCES predmeti(predmetID)
+)ENGINE = INNODB;
+
+CREATE TABLE studentipredmeti(   
+    studentpredment INT PRIMARY KEY AUTO_INCREMENT,
+    ocena INT(2) not null,
+    studentID int,
+    FOREIGN KEY (studentID) REFERENCES studenti(studentID),
+    predmetID int,
+    FOREIGN KEY (predmetId) REFERENCES predmeti(predmetID)
+)ENGINE = INNODB;
+
+CREATE TABLE studentipredavanja(   
+    studentpredavanje INT PRIMARY KEY AUTO_INCREMENT,
+    studentID int,
+    FOREIGN KEY (studentID) REFERENCES studenti(studentID),
+    predavanjeID int,
+    FOREIGN KEY (predavanjeId) REFERENCES predavanja(predavanjeID)
+)ENGINE = INNODB;
+
+INSERT INTO `studenti`(`ime`, `prezime`, `grad`, `ulica`, `broj`, `brojIndeksa`) 
+VALUES ('Pera', 'Peric', 'Petrograd', 'Petra Velikog', '3', 111),
+('Mika', 'Mikic', 'Mikograd', 'Mikina', 'BB', 222),
+('Zika', 'Zikic', 'Zikinovci', 'Zivorada Zivanovica', '1z', 333)
+
+INSERT INTO `predavanja`(`datum`, `predmetID`) 
+VALUES ('2022-05-05', 1),
+('2022-05-12', 1),
+('2022-05-19', 2),
+('2022-06-03', 1),
+('2022-04-05', 2),
+('2022-04-12', 2)
+
+####################################
+
+
+#///////////////////OSMIZADATAK/////////////////////////////////////////////////////
+
+DELIMITER // 
+CREATE TRIGGER podaciupdate AFTER UPDATE ON osobe FOR EACH ROW 
+BEGIN 
+INSERT INTO `podaci`(`brojMaloletnih`, `brojPunoletnih`) 
+VALUES ( (SELECT COUNT(osobaID) 
+FROM osobe 
+WHERE godine < 18), (SELECT COUNT(osobaID) FROM osobe WHERE godine >= 18) ); 
+END // 
+DELIMITER ;
+
+
+UPDATE `osobe` 
+SET `ime`='Kremenko',`prezime`='Katić',`godine`=7 
+WHERE osobaID = 1
+
+
+
+#///////////////////////////DEVETIZADATAK////////////////////////////////////////////
+
+
+DELIMITER // drop trigger if exists godiste // 
+CREATE TRIGGER godiste after update ON osobe for EACH ROW BEGIN INSERT INTO tabeladdID(brojizmedju) SELECT COUNT(datumrodj) FROM radnici WHERE year(datumrodj) BETWEEN 1985 and 1995; END // DELIMITER ;
+
+#/////////////////
+
+DELIMITER // CREATE TRIGGER godineizmedju AFTER INSERT ON osobe FOR EACH ROW BEGIN INSERT INTO tabeladd(brojizmedju) (SELECT COUNT(osobe.id) FROM osobe WHERE osobe.godine BETWEEN 1985 AND 1995); END // DELIMITER ;
+
+
+
+
